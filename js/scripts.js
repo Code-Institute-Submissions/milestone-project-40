@@ -98,7 +98,7 @@ let getChildData = function() {
       <div class="col-3 col-md-2">
         <div class="row text-center">
           <div class="col-12"><h4>Child</h4></div>
-          <div class="col-12">Image</div>
+          <div class="col-12"><i class="fas fa-user-alt"></i></div>
           <div class="col-12">${kid.name}</div>
         </div>
       </div>
@@ -118,8 +118,7 @@ let getChildData = function() {
       </div>
       <div class="col-3 col-md-2">
         <div class="row text-center">
-          <div class="col-12">x</div>
-          <div class="col-12">Info Image</div>
+          <div class="col-12"><i class="fas fa-info-circle"></i></div>
           <div class="col-12">more info...</div>
         </div>
       </div>
