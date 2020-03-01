@@ -6,6 +6,16 @@ function Kindergarten(date, kidsAsleep, kidsAwake) {
   this.kidsAwake = kidsAwake; //total number of kids currently awake
   this.kids = []; //array of Kid objects
 }
+//Kindergarten prototype
+Kindergarten.prototype.importList = function() {
+  console.log("prototype importList");
+  let kid1 = new Kid("Mathew", "---", "---", "---", "---", "00:00"); //create a kid object
+  let kid2 = new Kid("Mark", "---", "---", "---", "---", "00:00"); //create a kid object
+  let kid3 = new Kid("Luke", "---", "---", "---", "---", "00:00"); //create a kid object
+  let kid4 = new Kid("John", "---", "---", "---", "---", "00:00"); //create a kid object
+  barnehage.kids.push(kid1, kid2, kid3, kid4); //push the kid objects to the kids array
+  console.log("barnehage status", barnehage);
+};
 
 //define Kid object (constructor function)
 function Kid(
