@@ -16,7 +16,7 @@ Kindergarten.prototype.importList = function() {
   barnehage.kids.push(kid1, kid2, kid3, kid4); //push the kid objects to the kids array
   console.log("barnehage status", barnehage);
   $("#appSummaryData").empty();
-  $("#listContainer").empty();
+  $("#btnImportList").remove();
 };
 
 //define Kid object (constructor function)
