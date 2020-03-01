@@ -17,8 +17,8 @@ Kindergarten.prototype.importList = function() {
   console.log("barnehage status", barnehage);
   $("#appSummaryData").empty();
   $("#btnImportList").remove();
+  getChildData();
 };
-
 //define Kid object (constructor function)
 function Kid(
   name,
@@ -52,3 +52,52 @@ let barnehage = new Kindergarten(todayFormatted, 0, 20); //create a Kindergarten
 
 /***************************************************************** EVENT LISTENERS */
 $("#btnImportList").click(barnehage.importList); //jQuery event listener
+
+/********************************************************************** Functions */
+let getChildData = function() {
+  let data = "";
+  console.log("Testing for loop:");
+  //https://stackoverflow.com/questions/1027354/i-need-an-unordered-list-without-any-bullets
+  data += `
+  <ul class="list-unstyled">`;
+
+  for (const kid of barnehage.kids) {
+    //data will be concatenated to form a list of kids
+    data += `
+  <li>
+    <div class="row justify-content-center">
+      <div class="col-3 col-md-2">
+        <div class="row text-center">
+          <div class="col-12"><h4>Child</h4></div>
+          <div class="col-12">Image</div>
+          <div class="col-12">${kid.name}</div>
+        </div>
+      </div>
+      <div class="col-3 col-md-2">
+        <div class="row text-center">
+          <div class="col-12"><h4>Action</h4></div>
+          <div class="col-12">Image</div>
+          <div class="col-12">Description</div>
+        </div>
+      </div>
+      <div class="col-3 col-md-2">
+        <div class="row text-center">
+          <div class="col-12"><h4>Status</h4></div>
+          <div class="col-12">Image</div>
+          <div class="col-12">Description</div>
+        </div>
+      </div>
+      <div class="col-3 col-md-2">
+        <div class="row text-center">
+          <div class="col-12">x</div>
+          <div class="col-12">Info Image</div>
+          <div class="col-12">more info...</div>
+        </div>
+      </div>
+      <div class="col-12 text-center">Messages....</div>
+    </div>
+  </li>`;
+  }
+  data += `</ul >`;
+  $("#listContainer").html(data);
+};
