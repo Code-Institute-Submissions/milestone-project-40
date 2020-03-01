@@ -76,14 +76,14 @@ let getChildData = function() {
       <div class="col-3 col-md-2">
         <div class="row text-center">
           <div class="col-12"><h4>Action</h4></div>
-          <div class="col-12">Image</div>
+          <div class="col-12"><img src="./images/emoji-baby-awake.png" alt="Baby emoji awake" /></div>
           <div class="col-12">Description</div>
         </div>
       </div>
       <div class="col-3 col-md-2">
         <div class="row text-center">
           <div class="col-12"><h4>Status</h4></div>
-          <div class="col-12">Image</div>
+          <div class="col-12"><img src="./images/emoji-baby-asleep.png" alt="Baby emoji asleep" /></div>
           <div class="col-12">Description</div>
         </div>
       </div>
