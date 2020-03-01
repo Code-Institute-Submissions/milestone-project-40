@@ -63,7 +63,7 @@ let getHeaderData = function() {
       <div class="col-4 col-md-2">
         <div class="row text-center">
           <div class="col-12">Date:</div>
-          <div class="col-12">12-12-2020</div>
+          <div class="col-12">${todayFormatted}</div>
         </div>
       </div>
       <div class="col-4 col-md-2">
