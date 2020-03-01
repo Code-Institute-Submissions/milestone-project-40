@@ -39,3 +39,7 @@ Kid.prototype.putDown = function() {};
 Kid.prototype.takeUp = function() {};
 //Kid prototype (sets sleepStartTime)
 Kid.prototype.sleeping = function() {};
+
+/*********************************************************************************START */
+console.log("Create date.");
+let today = new Date(); //create a Date object
