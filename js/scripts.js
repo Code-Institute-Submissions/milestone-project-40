@@ -17,6 +17,7 @@ Kindergarten.prototype.importList = function() {
   console.log("barnehage status", barnehage);
   $("#appSummaryData").empty();
   $("#btnImportList").remove();
+  getHeaderData();
   getChildData();
 };
 //define Kid object (constructor function)
@@ -54,6 +55,34 @@ let barnehage = new Kindergarten(todayFormatted, 0, 20); //create a Kindergarten
 $("#btnImportList").click(barnehage.importList); //jQuery event listener
 
 /********************************************************************** Functions */
+let getHeaderData = function() {
+  let data = "";
+  console.log("Testing for loop:");
+  data += `
+      <div class="row justify-content-center">
+      <div class="col-4 col-md-2">
+        <div class="row text-center">
+          <div class="col-12">Date:</div>
+          <div class="col-12">12-12-2020</div>
+        </div>
+      </div>
+      <div class="col-4 col-md-2">
+        <div class="row text-center">
+          <div class="col-12">Awake:</div>
+          <div class="col-12">20</div>
+        </div>
+      </div>
+      <div class="col-4 col-md-2">
+        <div class="row text-center">
+          <div class="col-12">Asleep:</div>
+          <div class="col-12">0</div>
+        </div>
+      </div>
+    </div>
+  `;
+  $("#appSummaryData").html(data);
+};
+
 let getChildData = function() {
   let data = "";
   console.log("Testing for loop:");
