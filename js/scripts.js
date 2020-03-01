@@ -35,3 +35,5 @@ function Kid(
 }
 //Kid prototype (sets putDownTime)
 Kid.prototype.putDown = function() {};
+//Kid prototype (sets takeUpTime)
+Kid.prototype.takeUp = function() {};
