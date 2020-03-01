@@ -37,3 +37,5 @@ function Kid(
 Kid.prototype.putDown = function() {};
 //Kid prototype (sets takeUpTime)
 Kid.prototype.takeUp = function() {};
+//Kid prototype (sets sleepStartTime)
+Kid.prototype.sleeping = function() {};
