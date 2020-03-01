@@ -43,3 +43,4 @@ Kid.prototype.sleeping = function() {};
 /*********************************************************************************START */
 console.log("Create date.");
 let today = new Date(); //create a Date object
+let todayFormatted = today.toDateString(); //formatted date
