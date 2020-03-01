@@ -44,3 +44,6 @@ Kid.prototype.sleeping = function() {};
 console.log("Create date.");
 let today = new Date(); //create a Date object
 let todayFormatted = today.toDateString(); //formatted date
+
+console.log("Create barnehage object.");
+let barnehage = new Kindergarten(todayFormatted, 0, 20); //create a Kindergarten object
