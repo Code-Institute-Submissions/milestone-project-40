@@ -51,7 +51,9 @@ console.log("Create barnehage object.");
 let barnehage = new Kindergarten(todayFormatted, 0, 20); //create a Kindergarten object
 
 /***************************************************************** EVENT LISTENERS */
-$("#btnImportList").click(barnehage.importList); //jQuery event listener
+$("#btnImportList").on("click", function() {
+  barnehage.importList();
+}); //jQuery event listener
 
 /********************************************************************** Functions */
 let getHeaderData = function() {
