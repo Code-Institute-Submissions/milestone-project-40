@@ -9,11 +9,6 @@ function Kindergarten(date, kidsAsleep, kidsAwake) {
 //Kindergarten prototype
 Kindergarten.prototype.importList = function() {
   console.log("prototype importList");
-  let kid1 = new Kid("Mathew", "---", "---", "---", "---", "00:00"); //create a kid object
-  let kid2 = new Kid("Mark", "---", "---", "---", "---", "00:00"); //create a kid object
-  let kid3 = new Kid("Luke", "---", "---", "---", "---", "00:00"); //create a kid object
-  let kid4 = new Kid("John", "---", "---", "---", "---", "00:00"); //create a kid object
-  barnehage.kids.push(kid1, kid2, kid3, kid4); //push the kid objects to the kids array
   console.log("barnehage status", barnehage);
   $("#appSummaryData").empty();
   $("#btnImportList").remove();
@@ -102,7 +97,7 @@ let getChildData = function() {
           <div class="col-12">${kid.name}</div>
         </div>
       </div>
-      <div class="col-3 col-md-2 btnAction">
+      <div class="col-3 col-md-2">
         <div class="row text-center">
           <div class="col-12"><h4>Action</h4></div>
           <div class="col-12"><img src="./images/emoji-baby-awake.png" alt="Baby emoji awake" /></div>
