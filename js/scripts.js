@@ -9,6 +9,10 @@ function Kindergarten(date, kidsAsleep, kidsAwake) {
 //Kindergarten prototype
 Kindergarten.prototype.importList = function() {
   console.log("prototype importList");
+  console.log("prototype: Importing kid1...");
+  this.kids.push(new Kid("Mathew", "---", "---", "---", "---", "00:00"));
+  console.log("prototype: Importing kid2...");
+  this.kids.push(new Kid("Mark", "---", "---", "---", "---", "00:00"));
   console.log("barnehage status", barnehage);
   $("#appSummaryData").empty();
   $("#btnImportList").remove();
