@@ -6,19 +6,6 @@ function Kindergarten(date, kidsAsleep, kidsAwake) {
   this.kidsAwake = kidsAwake; //total number of kids currently awake
   this.kids = []; //array of Kid objects
 }
-//Kindergarten prototype
-Kindergarten.prototype.importList = function() {
-  console.log("prototype importList");
-  console.log("prototype: Importing kid1...");
-  this.kids.push(new Kid("Mathew", "---", "---", "---", "---", "00:00"));
-  console.log("prototype: Importing kid2...");
-  this.kids.push(new Kid("Mark", "---", "---", "---", "---", "00:00"));
-  console.log("barnehage status", barnehage);
-  $("#appSummaryData").empty();
-  $("#btnImportList").remove();
-  getHeaderData();
-  getChildData();
-};
 //define Kid object (constructor function)
 function Kid(
   name,
