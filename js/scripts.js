@@ -22,12 +22,6 @@ function Kid(
   this.takeUpTime = takeUpTime; //time when kid was taken out of pram
   this.sleepDuration = sleepDuration; //total time kid was sleeping
 }
-//Kid prototype (sets putDownTime)
-Kid.prototype.putDown = function() {};
-//Kid prototype (sets takeUpTime)
-Kid.prototype.takeUp = function() {};
-//Kid prototype (sets sleepStartTime)
-Kid.prototype.sleeping = function() {};
 
 /*********************************************************************************START */
 console.log("Create date.");
