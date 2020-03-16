@@ -52,4 +52,32 @@ function importList() {
   barnehage.departments[0].kids.push(new Kid("Paul")); //add a Kid
   barnehage.departments[0].kids.push(new Kid("John")); //add a Kid
   console.log(barnehage);
+  getHeaderData();
+}
+function getHeaderData() {
+  let data = "";
+  console.log("Testing for loop:");
+  data += `
+      <div class="row justify-content-center">
+      <div class="col-4 col-md-2">
+        <div class="row text-center">
+          <div class="col-12">Date:</div>
+          <div class="col-12">${todayFormatted}</div>
+        </div>
+      </div>
+      <div class="col-4 col-md-2">
+        <div class="row text-center">
+          <div class="col-12">Awake:</div>
+          <div class="col-12">20</div>
+        </div>
+      </div>
+      <div class="col-4 col-md-2">
+        <div class="row text-center">
+          <div class="col-12">Asleep:</div>
+          <div class="col-12">0</div>
+        </div>
+      </div>
+    </div>
+  `;
+  $("#appSummaryData").html(data);
 }
