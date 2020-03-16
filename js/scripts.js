@@ -6,11 +6,11 @@ function Kindergarten(name, departments = []) {
   this.departments = departments; //array of Department objects
 }
 //define Department object (constructor function)
-function Department(name, kidsAwake, kidsAsleep) {
+function Department(name, kidsAwake, kidsAsleep, kids = []) {
   this.name = name; //name of department
   this.kidsAwake = kidsAwake;
   this.kidsAsleep = kidsAsleep;
-  this.kids = []; //array of Kid objects
+  this.kids = kids; //array of Kid objects
 }
 //define Kid object (constructor function)
 function Kid(
