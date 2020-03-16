@@ -48,3 +48,8 @@ console.log(barnehage);
 $("#btnImportList").on("click", importList); //jQuery event listener
 
 /********************************************************************** Functions */
+function importList() {
+  barnehage.departments[0].kids.push(new Kid("Paul")); //add a Kid
+  barnehage.departments[0].kids.push(new Kid("John")); //add a Kid
+  console.log(barnehage);
+}
