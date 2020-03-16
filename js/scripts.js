@@ -1,8 +1,9 @@
 /***************************************************************** OBJECTS */
 //define Kindergarten object (constructor function)
-function Kindergarten(name) {
+function Kindergarten(name, departments = []) {
+  //https://stackoverflow.com/questions/50032748/using-an-array-inside-a-constructor-using-javascript
   this.name = name; //name of kindergarten
-  this.departments = []; //array of Department objects
+  this.departments = departments; //array of Department objects
 }
 //define Department object (constructor function)
 function Department(name, kidsAwake, kidsAsleep) {
