@@ -19,6 +19,7 @@ function Kid(
   sleepStartTime,
   sleepStopTime,
   takeUpTime,
+  awakeDuration,
   sleepDuration
 ) {
   this.name = name;
@@ -27,6 +28,7 @@ function Kid(
   this.sleepStartTime = sleepStartTime; //time when kid fell asleep
   this.sleepStopTime = sleepStopTime; //time when kid woke up
   this.takeUpTime = takeUpTime; //time when kid was taken out of pram
+  this.awakeDuration = awakeDuration; //total time kid was awake (before sleeping)
   this.sleepDuration = sleepDuration; //total time kid was sleeping
 }
 
