@@ -1,4 +1,9 @@
 /***************************************************************** OBJECTS */
+//define Kindergarten object (constructor function)
+function Kindergarten(name) {
+  this.name = name; //todays date
+  this.departments = []; //array of Department objects
+}
 //define Kid object (constructor function)
 function Kid(
   name,
