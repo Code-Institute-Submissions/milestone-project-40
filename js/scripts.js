@@ -45,6 +45,6 @@ barnehage.departments.push(new Department("Avdeling", 20, 0)); //add a departmen
 console.log(barnehage);
 
 /***************************************************************** EVENT LISTENERS */
-$("#btnImportList").on("click", function() {}); //jQuery event listener
+$("#btnImportList").on("click", importList); //jQuery event listener
 
 /********************************************************************** Functions */
