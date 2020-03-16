@@ -14,6 +14,7 @@ function Department(name, kidsAwake, kidsAsleep) {
 //define Kid object (constructor function)
 function Kid(
   name,
+  status,
   putDownTime,
   sleepStartTime,
   sleepStopTime,
@@ -21,6 +22,7 @@ function Kid(
   sleepDuration
 ) {
   this.name = name;
+  this.status = status;
   this.putDownTime = putDownTime; //time when kid was put in pram
   this.sleepStartTime = sleepStartTime; //time when kid fell asleep
   this.sleepStopTime = sleepStopTime; //time when kid woke up
