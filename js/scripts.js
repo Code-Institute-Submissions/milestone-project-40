@@ -39,7 +39,10 @@ let today = new Date(); //create a Date object
 let todayFormatted = today.toDateString(); //formatted date
 
 console.log("Create barnehage object.");
-let barnehage = new Kindergarten(todayFormatted, 0, 20); //create a Kindergarten object
+let barnehage = new Kindergarten("Barnehage"); //create a Kindergarten object
+console.log(barnehage);
+barnehage.departments.push(new Department("Avdeling", 20, 0)); //add a department
+console.log(barnehage);
 
 /***************************************************************** EVENT LISTENERS */
 $("#btnImportList").on("click", function() {}); //jQuery event listener
