@@ -7,6 +7,8 @@ function Kindergarten(name) {
 //define Department object (constructor function)
 function Department(name, kidsAwake, kidsAsleep) {
   this.name = name; //name of department
+  this.kidsAwake = kidsAwake;
+  this.kidsAsleep = kidsAsleep;
   this.kids = []; //array of Kid objects
 }
 //define Kid object (constructor function)
