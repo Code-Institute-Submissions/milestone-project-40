@@ -45,6 +45,8 @@ let todayFormatted = today.toDateString(); //formatted date
 console.log("Create barnehage object.");
 let barnehage = new Kindergarten(todayFormatted, 0, 20); //create a Kindergarten object
 
+let avdeling = new Department("Avdeling"); //create a Department object
+
 /***************************************************************** EVENT LISTENERS */
 $("#btnImportList").on("click", barnehage, barnehage.departments[0].importList); //jQuery event listener
 
