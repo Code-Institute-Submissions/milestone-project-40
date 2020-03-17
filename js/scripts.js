@@ -1,17 +1,21 @@
 /***************************************************************** OBJECTS */
 //define Kindergarten object (constructor function)
-function Kindergarten(name, departments = []) {
-  //https://stackoverflow.com/questions/50032748/using-an-array-inside-a-constructor-using-javascript
+function Kindergarten(name) {
   this.name = name; //name of kindergarten
-  this.departments = departments; //array of Department objects
+  this.departments = []; //array of Department objects
 }
 //define Department object (constructor function)
-function Department(name, kidsAwake, kidsAsleep, kids = []) {
+function Department(name, kidsAwake, kidsAsleep) {
   this.name = name; //name of department
   this.kidsAwake = kidsAwake;
   this.kidsAsleep = kidsAsleep;
-  this.kids = kids; //array of Kid objects
+  this.kids = []; //array of Kid objects
 }
+//Department prototype
+Department.prototype.importList = function(event) {
+  console.log("PROTOTYPE: event...", event.data);
+  console.log("PROTOTYPE: this...", this);
+};
 //define Kid object (constructor function)
 function Kid(
   name,
@@ -39,45 +43,9 @@ let today = new Date(); //create a Date object
 let todayFormatted = today.toDateString(); //formatted date
 
 console.log("Create barnehage object.");
-let barnehage = new Kindergarten("Barnehage"); //create a Kindergarten object
-console.log(barnehage);
-barnehage.departments.push(new Department("Avdeling", 20, 0)); //add a department
-console.log(barnehage);
+let barnehage = new Kindergarten(todayFormatted, 0, 20); //create a Kindergarten object
 
 /***************************************************************** EVENT LISTENERS */
-$("#btnImportList").on("click", importList); //jQuery event listener
+$("#btnImportList").on("click", barnehage, barnehage.departments[0].importList); //jQuery event listener
 
 /********************************************************************** Functions */
-function importList() {
-  barnehage.departments[0].kids.push(new Kid("Paul")); //add a Kid
-  barnehage.departments[0].kids.push(new Kid("John")); //add a Kid
-  console.log(barnehage);
-  getHeaderData();
-}
-function getHeaderData() {
-  let data = "";
-  console.log("Testing for loop:");
-  data += `
-      <div class="row justify-content-center">
-      <div class="col-4 col-md-2">
-        <div class="row text-center">
-          <div class="col-12">Date:</div>
-          <div class="col-12">${todayFormatted}</div>
-        </div>
-      </div>
-      <div class="col-4 col-md-2">
-        <div class="row text-center">
-          <div class="col-12">Awake:</div>
-          <div class="col-12">20</div>
-        </div>
-      </div>
-      <div class="col-4 col-md-2">
-        <div class="row text-center">
-          <div class="col-12">Asleep:</div>
-          <div class="col-12">0</div>
-        </div>
-      </div>
-    </div>
-  `;
-  $("#appSummaryData").html(data);
-}
