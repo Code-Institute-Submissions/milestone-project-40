@@ -47,6 +47,8 @@ let barnehage = new Kindergarten(todayFormatted, 0, 20); //create a Kindergarten
 
 let avdeling = new Department("Avdeling"); //create a Department object
 
+barnehage.departments.push(avdeling);
+
 /***************************************************************** EVENT LISTENERS */
 $("#btnImportList").on("click", barnehage, barnehage.departments[0].importList); //jQuery event listener
 
