@@ -21,6 +21,7 @@ Department.prototype.importList = function(event) {
   event.data.departments[0].kids.push(
     new Kid("Mark", "---", "---", "---", "---", "00:00")
   );
+  getHeaderData();
   console.log("barnehage status", barnehage.departments[0].kids);
 };
 //define Kid object (constructor function)
