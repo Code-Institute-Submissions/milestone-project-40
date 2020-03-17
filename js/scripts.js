@@ -15,6 +15,13 @@ function Department(name, kidsAwake, kidsAsleep) {
 Department.prototype.importList = function(event) {
   console.log("PROTOTYPE: event...", event.data);
   console.log("PROTOTYPE: this...", this);
+  event.data.departments[0].kids.push(
+    new Kid("Mathew", "---", "---", "---", "---", "00:00")
+  );
+  event.data.departments[0].kids.push(
+    new Kid("Mark", "---", "---", "---", "---", "00:00")
+  );
+  console.log("barnehage status", barnehage.departments[0].kids);
 };
 //define Kid object (constructor function)
 function Kid(
