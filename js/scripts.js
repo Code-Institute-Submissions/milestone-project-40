@@ -41,11 +41,20 @@ Department.prototype.importList = function(event) {
   getChildData();
   console.log("barnehage status", this.kids);
 };
+//Department prototype
+Department.prototype.refreshList = function(event) {
+  console.log("REFRESHING LIST...");
+  getHeaderData();
+  getChildData();
+  console.log("barnehage status", this.kids);
+};
 //define Kid object (constructor function)
 function Kid(
   name,
   status,
+  statusImg,
   action,
+  actionImg,
   putDownTime,
   sleepStartTime,
   sleepStopTime,
@@ -55,7 +64,9 @@ function Kid(
 ) {
   this.name = name;
   this.status = status;
+  this.statusImg = statusImg;
   this.action = action;
+  this.actionImg = actionImg;
   this.putDownTime = putDownTime; //time when kid was put in pram
   this.sleepStartTime = sleepStartTime; //time when kid fell asleep
   this.sleepStopTime = sleepStopTime; //time when kid woke up
@@ -67,10 +78,11 @@ function Kid(
 Kid.prototype.putDown = function(event) {
   console.log("*********************************************************");
   console.log("putDown: this...", this);
-  this.status = "Pram is empty";
+  this.status = `${this.name} awake in pram`;
   this.putDownTime = new Date();
   this.message = `Click 'Asleep?' when ${this.name} is asleep.`;
   console.log("status: ", activeKindergarten);
+  activeDepartment.refreshList();
 };
 
 /*********************************************************************************START */
@@ -180,7 +192,7 @@ function getChildData() {
         <div class="row text-center">
           <div class="col-12"><h4>Action</h4></div>
           <div class="col-12"><img src="./images/put_down.png" alt="Put baby down to sleep" /></div>
-          <div class="col-12">Put baby in pram</div>
+          <div class="col-12">${kid.action}</div>
         </div>
       </div>
       <div class="col-3 col-md-2">
