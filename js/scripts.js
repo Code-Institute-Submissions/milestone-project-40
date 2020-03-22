@@ -93,6 +93,19 @@ const activeDepartment = activeKindergarten.departments[0]; //set this Departmen
 /***************************************************************** EVENT LISTENERS */
 $("#btnImportList").on("click", $.proxy(activeDepartment, "importList"));
 
+$("#listContainer").on("click", ".actionIcon", activeDepartment, function(
+  event
+) {
+  console.log("Listener: event data...", event.data);
+  console.log("Listener: this...", this);
+  let node = $(this)
+    .parent()
+    .parent();
+  let index = node.index();
+  console.log("index: ", index);
+  activeDepartment.kids[index].putDown();
+}); //jQuery event listener
+
 /********************************************************************** Functions */
 function getHeaderData() {
   let data = "";
