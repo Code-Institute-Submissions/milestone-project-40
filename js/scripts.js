@@ -69,7 +69,7 @@ activeKindergarten.departments.push(avdeling); //add this department to out curr
 const activeDepartment = activeKindergarten.departments[0]; //set this Department object instance as the active department
 
 /***************************************************************** EVENT LISTENERS */
-$("#btnImportList").on("click", barnehage, barnehage.departments[0].importList); //jQuery event listener
+$("#btnImportList").on("click", $.proxy(activeDepartment, "importList"));
 
 /********************************************************************** Functions */
 function getHeaderData() {
