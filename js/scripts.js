@@ -44,7 +44,6 @@ function Kid(
 //Kid prototype
 Kid.prototype.putDown = function(event) {
   console.log("*********************************************************");
-  //  console.log("putDown: event data...", event.data);
   console.log("putDown: this...", this);
   this.status = "Awake in pram";
   this.putDownTime = new Date();
@@ -158,15 +157,15 @@ function getChildData() {
       <div class="col-3 col-md-2 actionIcon">
         <div class="row text-center">
           <div class="col-12"><h4>Action</h4></div>
-          <div class="col-12"><img src="./images/emoji-baby-awake.png" alt="Baby emoji awake" /></div>
-          <div class="col-12">Description</div>
+          <div class="col-12"><img src="./images/put_down.png" alt="Put baby down to sleep" /></div>
+          <div class="col-12">Put baby in pram</div>
         </div>
       </div>
       <div class="col-3 col-md-2">
         <div class="row text-center">
           <div class="col-12"><h4>Status</h4></div>
-          <div class="col-12"><img src="./images/emoji-baby-asleep.png" alt="Baby emoji asleep" /></div>
-          <div class="col-12">Description</div>
+          <div class="col-12"><img src="./images/empty_pram.png" alt="Empty pram" /></div>
+          <div class="col-12">Pram is empty</div>
         </div>
       </div>
       <div class="col-3 col-md-2">
