@@ -19,7 +19,9 @@ Department.prototype.importList = function(event) {
     new Kid(
       "Mathew",
       "Empty pram",
+      "empty_pram.png",
       "Put baby in pram",
+      "put_down.png",
       "---",
       "---",
       "---",
@@ -30,7 +32,9 @@ Department.prototype.importList = function(event) {
     new Kid(
       "John",
       "Empty pram",
+      "empty_pram.png",
       "Put baby in pram",
+      "put_down.png",
       "---",
       "---",
       "---",
@@ -171,12 +175,12 @@ function getHeaderData() {
 }
 function getChildData() {
   let data = "";
-  console.log("Testing for loop:");
   //https://stackoverflow.com/questions/1027354/i-need-an-unordered-list-without-any-bullets
   data += `
   <ul class="list-unstyled">`;
 
   for (const kid of activeDepartment.kids) {
+    console.log("kid.actionImg:", kid.actionImg);
     //data will be concatenated to form a list of kids
     data += `
   <li>
@@ -191,14 +195,14 @@ function getChildData() {
       <div class="col-3 col-md-2 actionIcon">
         <div class="row text-center">
           <div class="col-12"><h4>Action</h4></div>
-          <div class="col-12"><img src="./images/put_down.png" alt="Put baby down to sleep" /></div>
+          <div class="col-12"><img src="./images/${kid.actionImg}" alt="Put baby down to sleep" /></div>
           <div class="col-12">${kid.action}</div>
         </div>
       </div>
       <div class="col-3 col-md-2">
         <div class="row text-center">
           <div class="col-12"><h4>Status</h4></div>
-          <div class="col-12"><img src="./images/empty_pram.png" alt="Empty pram" /></div>
+          <div class="col-12"><img src="./images/${kid.statusImg}" alt="Empty pram" /></div>
           <div class="col-12">${kid.status}</div>
         </div>
       </div>
