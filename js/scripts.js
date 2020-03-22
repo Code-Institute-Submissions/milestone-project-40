@@ -54,8 +54,34 @@ Kid.prototype.putDown = function(event) {
 
 /*********************************************************************************START */
 console.log("Create date.");
-let today = new Date(); //create a Date object
-let todayFormatted = today.toDateString(); //formatted date
+let months = [
+  "Januar",
+  "Februar",
+  "Mars",
+  "Apr",
+  "Mai",
+  "Juni",
+  "Juli",
+  "August",
+  "September",
+  "Oktober",
+  "November",
+  "Desember"
+];
+let days = [
+  "Mandag",
+  "Tirsdag",
+  "Onsdag",
+  "Torsdag",
+  "Fredag",
+  "Lørdag",
+  "Søndag"
+];
+let todayDate = new Date();
+let todayDateFormatted = `${todayDate.getMonth()}.${
+  months[todayDate.getMonth()]
+} ${todayDate.getFullYear()}`;
+let todayTime = todayDate.getTime();
 
 console.log("Create barnehage object.");
 let barnehage = new Kindergarten(todayDateFormatted, 0, 20); //create a Kindergarten object instance
