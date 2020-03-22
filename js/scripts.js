@@ -15,12 +15,8 @@ function Department(name, kidsAwake, kidsAsleep) {
 Department.prototype.importList = function(event) {
   console.log("PROTOTYPE: event...", event.data);
   console.log("PROTOTYPE: this...", this);
-  event.data.departments[0].kids.push(
-    new Kid("Mathew", "---", "---", "---", "---", "00:00")
-  );
-  event.data.departments[0].kids.push(
-    new Kid("Mark", "---", "---", "---", "---", "00:00")
-  );
+  this.kids.push(new Kid("Mathew", "---", "---", "---", "---", "00:00"));
+  this.kids.push(new Kid("John", "---", "---", "---", "---", "00:00"));
   getHeaderData();
   getChildData();
   console.log("barnehage status", barnehage.departments[0].kids);
