@@ -22,7 +22,7 @@ Department.prototype.importList = function(event) {
       "empty_pram.png",
       "Put baby in pram",
       "put_down.png",
-      "---",
+      "120",
       "---",
       "---",
       "00:00"
@@ -35,7 +35,7 @@ Department.prototype.importList = function(event) {
       "empty_pram.png",
       "Put baby in pram",
       "put_down.png",
-      "---",
+      "120",
       "---",
       "---",
       "00:00"
@@ -60,6 +60,7 @@ function Kid(
   action,
   actionImg,
   putDownTime,
+  maxSleepTime,
   sleepStartTime,
   sleepStopTime,
   takeUpTime,
@@ -72,6 +73,7 @@ function Kid(
   this.action = action;
   this.actionImg = actionImg;
   this.putDownTime = putDownTime; //time when kid was put in pram
+  this.maxSleepTime = maxSleepTime; //maximum time kid should sleep for (given by parents)
   this.sleepStartTime = sleepStartTime; //time when kid fell asleep
   this.sleepStopTime = sleepStopTime; //time when kid woke up
   this.takeUpTime = takeUpTime; //time when kid was taken out of pram
