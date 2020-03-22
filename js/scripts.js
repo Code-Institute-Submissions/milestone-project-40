@@ -86,7 +86,7 @@ Kid.prototype.putDown = function(event) {
   this.action = `Click when ${this.name} is asleep`;
   this.actionImg = "asleep_yet.png";
   this.putDownTime = new Date();
-  this.message = `Click 'Asleep?' when ${this.name} is asleep.`;
+  this.message = `Click when ${this.name} is asleep.`;
   this.statusImg = "emoji_baby_awake_in_pram.png";
   console.log("status: ", activeKindergarten);
   activeDepartment.refreshList();
