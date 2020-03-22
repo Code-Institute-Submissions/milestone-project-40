@@ -158,7 +158,17 @@ $("#listContainer").on("click", ".actionIcon", activeDepartment, function(
     .parent();
   let index = node.index();
   console.log("index: ", index);
-  activeDepartment.kids[index].putDown();
+  let status = $(this)
+    .find(".status")
+    .text();
+  console.log("**********************status: ", status);
+  if (status == "Put baby in pram") {
+    activeDepartment.kids[index].putDown();
+  } else if (
+    status == `Click when ${activeDepartment.kids[index].name} is asleep`
+  ) {
+    activeDepartment.kids[index].asleepYet();
+  }
 }); //jQuery event listener
 
 /********************************************************************** Functions */
@@ -212,7 +222,7 @@ function getChildData() {
         <div class="row text-center">
           <div class="col-12"><h4>Action</h4></div>
           <div class="col-12"><img src="./images/${kid.actionImg}" alt="Put baby down to sleep" /></div>
-          <div class="col-12">${kid.action}</div>
+          <div class="col-12 status">${kid.action}</div>
         </div>
       </div>
       <div class="col-3 col-md-2">
