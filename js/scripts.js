@@ -175,7 +175,7 @@ function getChildData() {
           <div class="col-12">more info...</div>
         </div>
       </div>
-      <div class="col-12 text-center">Messages....</div>
+      <div class="col-12 text-center">${kid.message}</div>
     </div>
   </li>`;
   }
