@@ -45,6 +45,16 @@ function Kid(
   this.awakeDuration = awakeDuration; //total time kid was awake (before sleeping)
   this.sleepDuration = sleepDuration; //total time kid was sleeping
 }
+//Kid prototype
+Kid.prototype.putDown = function(event) {
+  console.log("*********************************************************");
+  //  console.log("putDown: event data...", event.data);
+  console.log("putDown: this...", this);
+  this.status = "Awake in pram";
+  this.putDownTime = new Date();
+  this.message = `Click 'Asleep?' when ${this.name} is asleep.`;
+  console.log("status: ", activeKindergarten);
+};
 
 /*********************************************************************************START */
 console.log("Create date.");
