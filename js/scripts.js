@@ -15,8 +15,28 @@ function Department(name, kidsAwake, kidsAsleep) {
 Department.prototype.importList = function(event) {
   console.log("PROTOTYPE: event...", event.data);
   console.log("PROTOTYPE: this...", this);
-  this.kids.push(new Kid("Mathew", "Empty pram", "---", "---", "---", "00:00"));
-  this.kids.push(new Kid("John", "Empty pram", "---", "---", "---", "00:00"));
+  this.kids.push(
+    new Kid(
+      "Mathew",
+      "Empty pram",
+      "Put baby in pram",
+      "---",
+      "---",
+      "---",
+      "00:00"
+    )
+  );
+  this.kids.push(
+    new Kid(
+      "John",
+      "Empty pram",
+      "Put baby in pram",
+      "---",
+      "---",
+      "---",
+      "00:00"
+    )
+  );
   getHeaderData();
   getChildData();
   console.log("barnehage status", this.kids);
@@ -25,6 +45,7 @@ Department.prototype.importList = function(event) {
 function Kid(
   name,
   status,
+  action,
   putDownTime,
   sleepStartTime,
   sleepStopTime,
@@ -34,6 +55,7 @@ function Kid(
 ) {
   this.name = name;
   this.status = status;
+  this.action = action;
   this.putDownTime = putDownTime; //time when kid was put in pram
   this.sleepStartTime = sleepStartTime; //time when kid fell asleep
   this.sleepStopTime = sleepStopTime; //time when kid woke up
