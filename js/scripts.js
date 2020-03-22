@@ -64,10 +64,9 @@ let todayFormatted = today.toDateString(); //formatted date
 console.log("Create barnehage object.");
 let barnehage = new Kindergarten(todayDateFormatted, 0, 20); //create a Kindergarten object instance
 const activeKindergarten = barnehage; //set this Kindergarten object instance as the active kindergarten
-
-let avdeling = new Department("Avdeling"); //create a Department object
-
-barnehage.departments.push(avdeling);
+let avdeling = new Department("Avdeling"); //create a Department object instance
+activeKindergarten.departments.push(avdeling); //add this department to out current kindergarten
+const activeDepartment = activeKindergarten.departments[0]; //set this Department object instance as the active department
 
 /***************************************************************** EVENT LISTENERS */
 $("#btnImportList").on("click", barnehage, barnehage.departments[0].importList); //jQuery event listener
