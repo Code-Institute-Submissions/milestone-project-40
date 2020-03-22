@@ -15,8 +15,8 @@ function Department(name, kidsAwake, kidsAsleep) {
 Department.prototype.importList = function(event) {
   console.log("PROTOTYPE: event...", event.data);
   console.log("PROTOTYPE: this...", this);
-  this.kids.push(new Kid("Mathew", "---", "---", "---", "---", "00:00"));
-  this.kids.push(new Kid("John", "---", "---", "---", "---", "00:00"));
+  this.kids.push(new Kid("Mathew", "Empty pram", "---", "---", "---", "00:00"));
+  this.kids.push(new Kid("John", "Empty pram", "---", "---", "---", "00:00"));
   getHeaderData();
   getChildData();
   console.log("barnehage status", this.kids);
@@ -45,7 +45,7 @@ function Kid(
 Kid.prototype.putDown = function(event) {
   console.log("*********************************************************");
   console.log("putDown: this...", this);
-  this.status = "Awake in pram";
+  this.status = "Pram is empty";
   this.putDownTime = new Date();
   this.message = `Click 'Asleep?' when ${this.name} is asleep.`;
   console.log("status: ", activeKindergarten);
@@ -165,7 +165,7 @@ function getChildData() {
         <div class="row text-center">
           <div class="col-12"><h4>Status</h4></div>
           <div class="col-12"><img src="./images/empty_pram.png" alt="Empty pram" /></div>
-          <div class="col-12">Pram is empty</div>
+          <div class="col-12">${kid.status}</div>
         </div>
       </div>
       <div class="col-3 col-md-2">
