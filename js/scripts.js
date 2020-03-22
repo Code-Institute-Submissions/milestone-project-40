@@ -83,6 +83,7 @@ Kid.prototype.putDown = function(event) {
   console.log("*********************************************************");
   console.log("putDown: this...", this);
   this.status = `${this.name} awake in pram`;
+  this.action = `Click when ${this.name} is asleep`;
   this.actionImg = "asleep_yet.png";
   this.putDownTime = new Date();
   this.message = `Click 'Asleep?' when ${this.name} is asleep.`;
