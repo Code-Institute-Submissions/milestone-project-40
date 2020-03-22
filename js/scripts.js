@@ -19,7 +19,7 @@ Department.prototype.importList = function(event) {
   this.kids.push(new Kid("John", "---", "---", "---", "---", "00:00"));
   getHeaderData();
   getChildData();
-  console.log("barnehage status", barnehage.departments[0].kids);
+  console.log("barnehage status", this.kids);
 };
 //define Kid object (constructor function)
 function Kid(
