@@ -89,6 +89,8 @@ const activeKindergarten = barnehage; //set this Kindergarten object instance as
 let avdeling = new Department("Avdeling"); //create a Department object instance
 activeKindergarten.departments.push(avdeling); //add this department to out current kindergarten
 const activeDepartment = activeKindergarten.departments[0]; //set this Department object instance as the active department
+console.log("activeKindergarten", activeKindergarten);
+console.log("activeDepartment", activeDepartment);
 
 /***************************************************************** EVENT LISTENERS */
 $("#btnImportList").on("click", $.proxy(activeDepartment, "importList"));
@@ -141,7 +143,7 @@ function getChildData() {
   data += `
   <ul class="list-unstyled">`;
 
-  for (const kid of barnehage.departments[0].kids) {
+  for (const kid of activeDepartment.kids) {
     //data will be concatenated to form a list of kids
     data += `
   <li>
