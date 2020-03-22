@@ -101,7 +101,7 @@ Kid.prototype.asleepYet = function(event) {
   this.sleepStartTime = new Date();
   this.action = "Wait for notification";
   this.actionImg = "wait.png";
-  this.message = `Click when ${this.name} is finished sleeping.`;
+  this.message = `${this.name} is sleeping. You will be notified when it is time to wake ${this.name}`;
   this.statusImg = "emoji_baby_asleep.png";
   console.log("status: ", activeKindergarten);
   activeDepartment.refreshList();
