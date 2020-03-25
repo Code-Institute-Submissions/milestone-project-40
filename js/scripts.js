@@ -13,8 +13,8 @@ function Department(name, kidsAwake, kidsAsleep) {
 }
 //Department prototype
 Department.prototype.importList = function(event) {
-  console.log("PROTOTYPE: event...", event.data);
-  console.log("PROTOTYPE: this...", this);
+  //  console.log("PROTOTYPE: event...", event.data);
+  //  console.log("PROTOTYPE: this...", this);
   this.kids.push(
     new Kid(
       "Mathew",
@@ -22,7 +22,7 @@ Department.prototype.importList = function(event) {
       "empty_pram.png",
       "Put baby in pram",
       "put_down.png",
-      "120",
+      120,
       "Click to put baby in pram"
     )
   );
@@ -33,21 +33,20 @@ Department.prototype.importList = function(event) {
       "empty_pram.png",
       "Put baby in pram",
       "put_down.png",
-      "120",
+      120,
       "Click to put baby in pram"
     )
   );
-  //kids[""0""].name
   getHeaderData();
   getChildData();
-  console.log("barnehage status", this.kids);
+  //  console.log("barnehage status", this.kids);
 };
 //Department prototype
 Department.prototype.refreshList = function(event) {
-  console.log("REFRESHING LIST...");
+  //  console.log("REFRESHING LIST...");
   getHeaderData();
   getChildData();
-  console.log("barnehage status", this.kids);
+  //  console.log("barnehage status", this.kids);
 };
 //define Kid object (constructor function)
 function Kid(
@@ -80,27 +79,33 @@ function Kid(
   this.sleepDuration = sleepDuration; //total time kid was sleeping
 }
 Kid.prototype.putDown = function(event) {
-  console.log("*********************************************************");
-  console.log("putDown: this...", this);
+  //  console.log("*********************************************************");
+  //  console.log("putDown: this...", this);
   this.status = `${this.name} awake in pram`;
   this.action = `Click when ${this.name} is asleep`;
   this.actionImg = "asleep_yet.png";
   this.putDownTime = new Date();
   this.message = `Click when ${this.name} is asleep.`;
   this.statusImg = "emoji_baby_awake_in_pram.png";
-  console.log("status: ", activeKindergarten);
+  console.log("***** put down mathew at: ", this.putDownTime);
   activeDepartment.refreshList();
 };
 //Kid prototype
 Kid.prototype.asleepYet = function(event) {
-  console.log("*********************************************************");
-  console.log("asleepYet: this...", this);
+  //  console.log("*********************************************************");
+  //  console.log("asleepYet: this...", this);
   this.status = `${this.name} is asleep`;
-  this.sleepStartTime = new Date();
+  this.statusImg = "emoji_baby_asleep.png";
   this.action = "Wait for notification";
   this.actionImg = "wait.png";
+  this.sleepStartTime = new Date();
   this.message = `${this.name} is sleeping. You will be notified when it is time to wake ${this.name}`;
-  this.statusImg = "emoji_baby_asleep.png";
+  this.takeUpTime = new Date();
+  //https://www.tutorialspoint.com/How-to-add-30-minutes-to-a-JavaScript-Date-object
+  this.takeUpTime.setMinutes(this.takeUpTime.getMinutes() + this.maxSleepTime);
+
+  console.log("mathew started sleeping at: ", this.sleepStartTime);
+  console.log("mathew wakes at: ", this.takeUpTime);
   console.log("status: ", activeKindergarten);
   activeDepartment.refreshList();
 };
@@ -136,14 +141,14 @@ let todayDateFormatted = `${todayDate.getMonth()}.${
 } ${todayDate.getFullYear()}`;
 let todayTime = todayDate.getTime();
 
-console.log("Create barnehage object.");
+//console.log("Create barnehage object.");
 let barnehage = new Kindergarten(todayDateFormatted, 0, 20); //create a Kindergarten object instance
 const activeKindergarten = barnehage; //set this Kindergarten object instance as the active kindergarten
 let avdeling = new Department("Avdeling"); //create a Department object instance
 activeKindergarten.departments.push(avdeling); //add this department to out current kindergarten
 const activeDepartment = activeKindergarten.departments[0]; //set this Department object instance as the active department
-console.log("activeKindergarten", activeKindergarten);
-console.log("activeDepartment", activeDepartment);
+//console.log("activeKindergarten", activeKindergarten);
+//console.log("activeDepartment", activeDepartment);
 
 //https://www.w3schools.com/jsref/met_win_setinterval.asp
 /*setInterval(function() {
@@ -157,22 +162,24 @@ $("#btnImportList").on("click", $.proxy(activeDepartment, "importList"));
 $("#listContainer").on("click", ".actionIcon", activeDepartment, function(
   event
 ) {
-  console.log("Listener: event data...", event.data);
-  console.log("Listener: this...", this);
+  //  console.log("Listener: event data...", event.data);
+  //  console.log("Listener: this...", this);
   let node = $(this)
     .parent()
     .parent();
   let index = node.index();
-  console.log("index: ", index);
+  //  console.log("index: ", index);
   let status = $(this)
     .find(".status")
     .text();
-  console.log("**********************status: ", status);
+  //  console.log("**********************status: ", status);
   if (status == "Put baby in pram") {
+    console.log("RUNNING PUTDOWN()");
     activeDepartment.kids[index].putDown();
   } else if (
     status == `Click when ${activeDepartment.kids[index].name} is asleep`
   ) {
+    console.log("RUNNING ASLEEPYET()");
     activeDepartment.kids[index].asleepYet();
   }
 }); //jQuery event listener
