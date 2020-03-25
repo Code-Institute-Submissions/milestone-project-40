@@ -22,7 +22,8 @@ Department.prototype.importList = function(event) {
       "empty_pram.png",
       "Put baby in pram",
       "put_down.png",
-      "120"
+      "120",
+      "Click to put baby in pram"
     )
   );
   this.kids.push(
@@ -32,9 +33,11 @@ Department.prototype.importList = function(event) {
       "empty_pram.png",
       "Put baby in pram",
       "put_down.png",
-      "120"
+      "120",
+      "Click to put baby in pram"
     )
   );
+  //kids[""0""].name
   getHeaderData();
   getChildData();
   console.log("barnehage status", this.kids);
@@ -54,6 +57,7 @@ function Kid(
   action,
   actionImg,
   maxSleepTime,
+  message,
   putDownTime,
   sleepStartTime,
   sleepStopTime,
@@ -68,13 +72,13 @@ function Kid(
   this.actionImg = actionImg;
   this.putDownTime = putDownTime; //time when kid was put in pram
   this.maxSleepTime = maxSleepTime; //maximum time kid should sleep for (given by parents)
+  this.message = message; //message description
   this.sleepStartTime = sleepStartTime; //time when kid fell asleep
   this.sleepStopTime = sleepStopTime; //time when kid woke up
   this.takeUpTime = takeUpTime; //time when kid was taken out of pram
   this.awakeDuration = awakeDuration; //total time kid was awake (before sleeping)
   this.sleepDuration = sleepDuration; //total time kid was sleeping
 }
-//Kid prototype
 Kid.prototype.putDown = function(event) {
   console.log("*********************************************************");
   console.log("putDown: this...", this);
@@ -208,7 +212,7 @@ function getChildData() {
   <ul class="list-unstyled">`;
 
   for (const kid of activeDepartment.kids) {
-    console.log("kid.actionImg:", kid.actionImg);
+    console.log("kid.message", kid.message);
     //data will be concatenated to form a list of kids
     data += `
   <li>
