@@ -22,10 +22,7 @@ Department.prototype.importList = function(event) {
       "empty_pram.png",
       "Put baby in pram",
       "put_down.png",
-      "120",
-      "---",
-      "---",
-      "00:00"
+      "120"
     )
   );
   this.kids.push(
@@ -35,10 +32,7 @@ Department.prototype.importList = function(event) {
       "empty_pram.png",
       "Put baby in pram",
       "put_down.png",
-      "120",
-      "---",
-      "---",
-      "00:00"
+      "120"
     )
   );
   getHeaderData();
@@ -59,8 +53,8 @@ function Kid(
   statusImg,
   action,
   actionImg,
-  putDownTime,
   maxSleepTime,
+  putDownTime,
   sleepStartTime,
   sleepStopTime,
   takeUpTime,
@@ -146,6 +140,12 @@ activeKindergarten.departments.push(avdeling); //add this department to out curr
 const activeDepartment = activeKindergarten.departments[0]; //set this Department object instance as the active department
 console.log("activeKindergarten", activeKindergarten);
 console.log("activeDepartment", activeDepartment);
+
+//https://www.w3schools.com/jsref/met_win_setinterval.asp
+/*setInterval(function() {
+  console.log("Timer function called");
+
+}, 60000);*/
 
 /***************************************************************** EVENT LISTENERS */
 $("#btnImportList").on("click", $.proxy(activeDepartment, "importList"));
