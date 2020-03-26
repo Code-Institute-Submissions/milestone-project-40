@@ -22,7 +22,7 @@ Department.prototype.importList = function(event) {
       "empty_pram.png",
       "Put baby in pram",
       "put_down.png",
-      120,
+      1,
       "Click to put baby in pram"
     )
   );
@@ -33,7 +33,7 @@ Department.prototype.importList = function(event) {
       "empty_pram.png",
       "Put baby in pram",
       "put_down.png",
-      120,
+      1,
       "Click to put baby in pram"
     )
   );
@@ -151,10 +151,18 @@ const activeDepartment = activeKindergarten.departments[0]; //set this Departmen
 //console.log("activeDepartment", activeDepartment);
 
 //https://www.w3schools.com/jsref/met_win_setinterval.asp
-/*setInterval(function() {
+setInterval(function() {
+  console.log("===========================================");
   console.log("Timer function called");
+  for (const kid of activeDepartment.kids) {
+    let sleeping = Date.now() - kid.sleepStartTime; //length of time sleeping (milliseconds)
 
-}, 60000);*/
+    if (sleeping > kid.maxSleepTime * 60000) {
+      //convert maxSleepTime from minutes to milliseconds
+      console.log(`-----> ${kid.name} needs to be taken up!`);
+    }
+  }
+}, 10000);
 
 /***************************************************************** EVENT LISTENERS */
 $("#btnImportList").on("click", $.proxy(activeDepartment, "importList"));
