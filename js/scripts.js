@@ -86,29 +86,23 @@ Kid.prototype.putDown = function(event) {
 //Kid prototype
 Kid.prototype.asleepYet = function(event) {
   this.status = `${this.name} is asleep`;
-  this.statusImg = "emoji_baby_asleep.png"; //xxx
+  this.statusImg = "emoji_baby_asleep.png";
   this.actionImg = "wait.png";
   this.sleepStartTime = new Date();
   this.takeUpTime = new Date();
   this.takeUpTime.setMinutes(this.takeUpTime.getMinutes() + this.maxSleepTime);
-
   this.action = `Take up ${this.name} ${getActionMinutes(this.takeUpTime)}`;
-  //this.takeUpTime - Date.now()
   this.message = `${this.name} is sleeping. You will be notified when it is time to wake ${this.name}`;
-  //https://www.tutorialspoint.com/How-to-add-30-minutes-to-a-JavaScript-Date-object
-  //number
-
-  console.log(
-    `***** Date.now() value: ${Date.now()}. Type of: ${typeof Date.now()}`
-  );
-  //object
-  console.log(
-    `***** takeUpTime value: ${this.takeUpTime.getTime()}. Type of: ${typeof this.takeUpTime.getTime()}`
-  );
-
-  console.log("mathew started sleeping at: ", this.sleepStartTime);
-  console.log("mathew wakes at: ", this.takeUpTime);
-  console.log("status: ", activeKindergarten);
+  activeDepartment.refreshList();
+};
+//Kid prototype
+Kid.prototype.takeUp = function(event) {
+  this.status = "Finished sleeping";
+  this.statusImg = "emoji_baby_asleep.png";
+  this.actionImg = "wait.png";
+  this.sleepStopTime = new Date();
+  this.action = `${this.name} is finished sleeping`;
+  this.message = `${this.name} is finished sleeping.`;
   activeDepartment.refreshList();
 };
 
@@ -164,7 +158,6 @@ setInterval(function() {
       //     kid.status = `${kid.name} is asleep`;
       kid.statusImg = "emoji_baby_asleep.png";
       kid.action = `Take up ${kid.name} ${getActionMinutes(kid.takeUpTime)}`;
-      //      kid.action = `Take up ${kid.name}`;
       kid.actionImg = "take_up.png";
       kid.message = `${kid.name} needs to be taken up.`;
       activeDepartment.refreshList();
