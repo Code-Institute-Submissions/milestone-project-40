@@ -35,8 +35,7 @@ Department.prototype.importList = function(event) {
       "Click to put baby in pram"
     )
   );
-  getHeaderData();
-  getChildData();
+  this.refreshList();
 };
 //Department prototype
 Department.prototype.refreshList = function(event) {
