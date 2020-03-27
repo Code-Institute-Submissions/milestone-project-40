@@ -157,9 +157,14 @@ setInterval(function() {
   for (const kid of activeDepartment.kids) {
     let sleeping = Date.now() - kid.sleepStartTime; //length of time sleeping (milliseconds)
 
+    //convert maxSleepTime from minutes to milliseconds
     if (sleeping > kid.maxSleepTime * 60000) {
-      //convert maxSleepTime from minutes to milliseconds
-      console.log(`-----> ${kid.name} needs to be taken up!`);
+      kid.status = `Take up ${kid.name}`;
+      kid.statusImg = "emoji_baby_asleep.png";
+      kid.action = `Take up ${kid.name}`;
+      kid.actionImg = "take_up.png";
+      kid.message = `${kid.name} needs to be taken up.`;
+      activeDepartment.refreshList();
     }
   }
 }, 10000);
@@ -225,7 +230,7 @@ function getChildData() {
   //https://stackoverflow.com/questions/1027354/i-need-an-unordered-list-without-any-bullets
   data += `
   <ul class="list-unstyled">`;
-
+  console.log("GETTING CHILD DATA:");
   for (const kid of activeDepartment.kids) {
     console.log("kid.message", kid.message);
     //data will be concatenated to form a list of kids
