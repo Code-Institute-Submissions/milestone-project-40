@@ -93,8 +93,8 @@ Kid.prototype.asleepYet = function(event) {
   this.takeUpTime = new Date();
   this.takeUpTime.setMinutes(this.takeUpTime.getMinutes() + this.maxSleepTime);
 
-  this.action = `Take up ${this.name} in ${this.takeUpTime - Date.now()} mins`;
-
+  this.action = `Take up ${this.name} ${getActionMinutes(this.takeUpTime)}`;
+  //this.takeUpTime - Date.now()
   this.message = `${this.name} is sleeping. You will be notified when it is time to wake ${this.name}`;
   //https://www.tutorialspoint.com/How-to-add-30-minutes-to-a-JavaScript-Date-object
   //number
@@ -164,8 +164,7 @@ setInterval(function() {
     if (sleeping > kid.maxSleepTime * 60000) {
       //     kid.status = `${kid.name} is asleep`;
       kid.statusImg = "emoji_baby_asleep.png";
-      kid.action = `Take up ${kid.name} in ${kid.takeUpTime - Date.now()} mins`;
-
+      kid.action = `Take up ${kid.name} ${getActionMinutes(kid.takeUpTime)}`;
       //      kid.action = `Take up ${kid.name}`;
       kid.actionImg = "take_up.png";
       kid.message = `${kid.name} needs to be taken up.`;
@@ -275,4 +274,12 @@ function getChildData() {
   }
   data += `</ul >`;
   $("#listContainer").html(data);
+}
+function getActionMinutes(takeUpTime) {
+  let timeReamaining = (takeUpTime - Date.now()) / 60000; //convert from milliseconds to minutes
+  if (timeReamaining < 1) {
+    return "now!";
+  } else {
+    return `in ${timeReamaining} mins`;
+  }
 }
