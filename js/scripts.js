@@ -13,8 +13,6 @@ function Department(name, kidsAwake, kidsAsleep) {
 }
 //Department prototype
 Department.prototype.importList = function(event) {
-  //  console.log("PROTOTYPE: event...", event.data);
-  //  console.log("PROTOTYPE: this...", this);
   this.kids.push(
     new Kid(
       "Mathew",
@@ -39,14 +37,12 @@ Department.prototype.importList = function(event) {
   );
   getHeaderData();
   getChildData();
-  //  console.log("barnehage status", this.kids);
 };
 //Department prototype
 Department.prototype.refreshList = function(event) {
   //  console.log("REFRESHING LIST...");
   getHeaderData();
   getChildData();
-  //  console.log("barnehage status", this.kids);
 };
 //define Kid object (constructor function)
 function Kid(
@@ -79,30 +75,37 @@ function Kid(
   this.sleepDuration = sleepDuration; //total time kid was sleeping
 }
 Kid.prototype.putDown = function(event) {
-  //  console.log("*********************************************************");
-  //  console.log("putDown: this...", this);
   this.status = `${this.name} awake in pram`;
+  this.statusImg = "emoji_baby_awake_in_pram.png";
   this.action = `Click when ${this.name} is asleep`;
   this.actionImg = "asleep_yet.png";
   this.putDownTime = new Date();
   this.message = `Click when ${this.name} is asleep.`;
-  this.statusImg = "emoji_baby_awake_in_pram.png";
   console.log("***** put down mathew at: ", this.putDownTime);
   activeDepartment.refreshList();
 };
 //Kid prototype
 Kid.prototype.asleepYet = function(event) {
-  //  console.log("*********************************************************");
-  //  console.log("asleepYet: this...", this);
   this.status = `${this.name} is asleep`;
-  this.statusImg = "emoji_baby_asleep.png";
-  this.action = "Wait for notification";
+  this.statusImg = "emoji_baby_asleep.png"; //xxx
   this.actionImg = "wait.png";
   this.sleepStartTime = new Date();
-  this.message = `${this.name} is sleeping. You will be notified when it is time to wake ${this.name}`;
   this.takeUpTime = new Date();
-  //https://www.tutorialspoint.com/How-to-add-30-minutes-to-a-JavaScript-Date-object
   this.takeUpTime.setMinutes(this.takeUpTime.getMinutes() + this.maxSleepTime);
+
+  this.action = `Take up ${this.name} in ${this.takeUpTime - Date.now()} mins`;
+
+  this.message = `${this.name} is sleeping. You will be notified when it is time to wake ${this.name}`;
+  //https://www.tutorialspoint.com/How-to-add-30-minutes-to-a-JavaScript-Date-object
+  //number
+
+  console.log(
+    `***** Date.now() value: ${Date.now()}. Type of: ${typeof Date.now()}`
+  );
+  //object
+  console.log(
+    `***** takeUpTime value: ${this.takeUpTime.getTime()}. Type of: ${typeof this.takeUpTime.getTime()}`
+  );
 
   console.log("mathew started sleeping at: ", this.sleepStartTime);
   console.log("mathew wakes at: ", this.takeUpTime);
@@ -159,9 +162,11 @@ setInterval(function() {
 
     //convert maxSleepTime from minutes to milliseconds
     if (sleeping > kid.maxSleepTime * 60000) {
-      kid.status = `Take up ${kid.name}`;
+      //     kid.status = `${kid.name} is asleep`;
       kid.statusImg = "emoji_baby_asleep.png";
-      kid.action = `Take up ${kid.name}`;
+      kid.action = `Take up ${kid.name} in ${kid.takeUpTime - Date.now()} mins`;
+
+      //      kid.action = `Take up ${kid.name}`;
       kid.actionImg = "take_up.png";
       kid.message = `${kid.name} needs to be taken up.`;
       activeDepartment.refreshList();
