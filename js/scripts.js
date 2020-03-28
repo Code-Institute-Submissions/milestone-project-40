@@ -20,7 +20,7 @@ Department.prototype.importList = function(event) {
       "empty_pram.png",
       "Put baby in pram",
       "put_down.png",
-      1,
+      5,
       "Click to put baby in pram"
     )
   );
@@ -160,9 +160,9 @@ setInterval(function() {
       kid.action = `Take up ${kid.name} ${getActionMinutes(kid.takeUpTime)}`;
       kid.actionImg = "take_up.png";
       kid.message = `${kid.name} needs to be taken up.`;
-      activeDepartment.refreshList();
     }
   }
+  activeDepartment.refreshList();
 }, 10000);
 
 /***************************************************************** EVENT LISTENERS */
@@ -171,8 +171,6 @@ $("#btnImportList").on("click", $.proxy(activeDepartment, "importList"));
 $("#listContainer").on("click", ".actionIcon", activeDepartment, function(
   event
 ) {
-  //  console.log("Listener: event data...", event.data);
-  //  console.log("Listener: this...", this);
   let node = $(this)
     .parent()
     .parent();
@@ -181,6 +179,8 @@ $("#listContainer").on("click", ".actionIcon", activeDepartment, function(
   let status = $(this)
     .find(".status")
     .text();
+  console.log(">>>>> Listener: status...", status);
+  //  console.log("Listener: this...", this);
   //  console.log("**********************status: ", status);
   if (status == "Put baby in pram") {
     console.log("RUNNING PUTDOWN()");
@@ -190,6 +190,11 @@ $("#listContainer").on("click", ".actionIcon", activeDepartment, function(
   ) {
     console.log("RUNNING ASLEEPYET()");
     activeDepartment.kids[index].asleepYet();
+  } else if (
+    status == `${activeDepartment.kids[index].name} needs to be taken up.`
+  ) {
+    console.log("RUNNING TAKEUP()");
+    activeDepartment.kids[index].takeUp();
   }
 }); //jQuery event listener
 
