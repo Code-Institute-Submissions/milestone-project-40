@@ -184,23 +184,24 @@ $("#listContainer").on("click", ".actionIcon", activeDepartment, function(
     .parent()
     .parent();
   let index = node.index();
-  //  console.log("index: ", index);
-  let status = $(this)
-    .find(".status")
+  console.log(">>>>>>>>>>> index: ", index);
+  console.log(">>>>>>>>>>> node: ", node.html());
+  let actionText = $(this)
+    .find(".action")
     .text();
   //  console.log(">>>>> Listener: status...", status);
   //  console.log("Listener: this...", this);
   //  console.log("**********************status: ", status);
-  if (status == "Put baby in pram") {
+  if (actionText == "Put baby in pram") {
     console.log("<- putDown() ->");
     activeDepartment.kids[index].putDown();
   } else if (
-    status == `Click when ${activeDepartment.kids[index].name} is asleep`
+    actionText == `Click when ${activeDepartment.kids[index].name} is asleep`
   ) {
     console.log("<- asleepYet() ->");
     activeDepartment.kids[index].asleepYet();
   } else if (
-    status == `${activeDepartment.kids[index].name} needs to be taken up.`
+    actionText == `${activeDepartment.kids[index].name} needs to be taken up.`
   ) {
     console.log("<- takeUp() ->");
     activeDepartment.kids[index].takeUp();
