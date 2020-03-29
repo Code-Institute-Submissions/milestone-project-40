@@ -93,19 +93,19 @@ Kid.prototype.asleepYet = function(event) {
   this.takeUpTime.setMinutes(this.takeUpTime.getMinutes() + this.maxSleepTime);
   this.action = `Take up ${this.name} ${getActionMinutes(this.takeUpTime)}`;
   this.message = `${this.name} is sleeping. You will be notified when it is time to wake ${this.name}`;
-  console.log("=======>> this.sleepStartTime: ", this.sleepStartTime);
-  console.log("=======>> this.putDownTime: ", this.putDownTime);
+  //  console.log("=======>> this.sleepStartTime: ", this.sleepStartTime);
+  //  console.log("=======>> this.putDownTime: ", this.putDownTime);
   this.awakeDuration = Math.floor(
     (this.sleepStartTime - this.putDownTime) / 60000
   );
-  console.log("=======>> Awake for (mins): ", this.awakeDuration);
+  console.log("=======>> Refreshing from asleepYet()", barnehage);
   activeDepartment.refreshList();
 };
 //Kid prototype
 Kid.prototype.takeUp = function(event) {
   this.status = "Finished sleeping";
   this.statusImg = "empty_pram.png";
-  this.actionImg = "wait.png";
+  this.actionImg = "empty_pram.png";
   this.sleepStopTime = new Date();
   this.action = `${this.name} is finished sleeping`;
   this.message = `${this.name} is finished sleeping.`;
@@ -163,15 +163,16 @@ setInterval(function() {
     let sleeping = Date.now() - kid.sleepStartTime; //length of time sleeping (milliseconds)
     if (kid.status == `${kid.name} is asleep`) {
       kid.action = `Take up ${kid.name} ${getActionMinutes(kid.takeUpTime)}`;
+      kid.actionImg = "take_up.png";
     }
     //convert maxSleepTime from minutes to milliseconds
     if (sleeping > kid.maxSleepTime * 60000) {
       //     kid.status = `${kid.name} is asleep`;
       kid.statusImg = "emoji_baby_asleep.png";
-      kid.actionImg = "take_up.png";
       kid.message = `${kid.name} needs to be taken up.`;
     }
   }
+  console.log("=======>> Refreshing from timer", barnehage);
   activeDepartment.refreshList();
 }, 10000);
 
