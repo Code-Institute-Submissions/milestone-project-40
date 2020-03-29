@@ -282,7 +282,10 @@ function getChildData() {
   $("#listContainer").html(data);
 }
 function getActionMinutes(takeUpTime) {
-  let timeReamaining = (takeUpTime - Date.now()) / 60000; //convert from milliseconds to minutes
+  this.sleepDuration = Math.floor(
+    (this.sleepStopTime - this.sleepStartTime) / 60000
+  );
+  let timeReamaining = Math.floor((takeUpTime - Date.now()) / 60000); //convert from milliseconds to minutes
   if (timeReamaining < 1) {
     return "now!";
   } else {
