@@ -109,6 +109,10 @@ Kid.prototype.takeUp = function(event) {
   this.sleepStopTime = new Date();
   this.action = `${this.name} is finished sleeping`;
   this.message = `${this.name} is finished sleeping.`;
+  this.sleepDuration = Math.floor(
+    (this.sleepStopTime - this.sleepStartTime) / 60000
+  );
+  console.log("=======>> Slept for (mins): ", this.sleepDuration);
   activeDepartment.refreshList();
 };
 
