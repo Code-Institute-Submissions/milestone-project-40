@@ -258,14 +258,14 @@ function getChildData() {
         <div class="row text-center">
           <div class="col-12"><h4>Action</h4></div>
           <div class="col-12"><img src="./images/${kid.actionImg}" alt="Put baby down to sleep" /></div>
-          <div class="col-12 status">${kid.action}</div>
+          <div class="col-12 action">${kid.action}</div>
         </div>
       </div>
       <div class="col-3 col-md-2">
         <div class="row text-center">
           <div class="col-12"><h4>Status</h4></div>
           <div class="col-12"><img src="./images/${kid.statusImg}" alt="Empty pram" /></div>
-          <div class="col-12">${kid.status}</div>
+          <div class="col-12 status">${kid.status}</div>
         </div>
       </div>
       <div class="col-3 col-md-2">
