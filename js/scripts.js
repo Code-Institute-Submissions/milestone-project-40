@@ -80,7 +80,7 @@ Kid.prototype.putDown = function(event) {
   this.actionImg = "asleep_yet.png";
   this.putDownTime = new Date();
   this.message = `Click when ${this.name} is asleep.`;
-  console.log("***** put down mathew at: ", this.putDownTime);
+  //  console.log("***** put down mathew at: ", this.putDownTime);
   activeDepartment.refreshList();
 };
 //Kid prototype
@@ -93,6 +93,12 @@ Kid.prototype.asleepYet = function(event) {
   this.takeUpTime.setMinutes(this.takeUpTime.getMinutes() + this.maxSleepTime);
   this.action = `Take up ${this.name} ${getActionMinutes(this.takeUpTime)}`;
   this.message = `${this.name} is sleeping. You will be notified when it is time to wake ${this.name}`;
+  console.log("=======>> this.sleepStartTime: ", this.sleepStartTime);
+  console.log("=======>> this.putDownTime: ", this.putDownTime);
+  this.awakeDuration = Math.floor(
+    (this.sleepStartTime - this.putDownTime) / 60000
+  );
+  console.log("=======>> Awake for (mins): ", this.awakeDuration);
   activeDepartment.refreshList();
 };
 //Kid prototype
@@ -148,8 +154,7 @@ const activeDepartment = activeKindergarten.departments[0]; //set this Departmen
 
 //https://www.w3schools.com/jsref/met_win_setinterval.asp
 setInterval(function() {
-  console.log("===========================================");
-  console.log("Timer function called");
+  console.log("===========Timer function called==============");
   for (const kid of activeDepartment.kids) {
     let sleeping = Date.now() - kid.sleepStartTime; //length of time sleeping (milliseconds)
 
@@ -179,21 +184,21 @@ $("#listContainer").on("click", ".actionIcon", activeDepartment, function(
   let status = $(this)
     .find(".status")
     .text();
-  console.log(">>>>> Listener: status...", status);
+  //  console.log(">>>>> Listener: status...", status);
   //  console.log("Listener: this...", this);
   //  console.log("**********************status: ", status);
   if (status == "Put baby in pram") {
-    console.log("RUNNING PUTDOWN()");
+    console.log("<- putDown() ->");
     activeDepartment.kids[index].putDown();
   } else if (
     status == `Click when ${activeDepartment.kids[index].name} is asleep`
   ) {
-    console.log("RUNNING ASLEEPYET()");
+    console.log("<- asleepYet() ->");
     activeDepartment.kids[index].asleepYet();
   } else if (
     status == `${activeDepartment.kids[index].name} needs to be taken up.`
   ) {
-    console.log("RUNNING TAKEUP()");
+    console.log("<- takeUp() ->");
     activeDepartment.kids[index].takeUp();
   }
 }); //jQuery event listener
@@ -201,7 +206,7 @@ $("#listContainer").on("click", ".actionIcon", activeDepartment, function(
 /********************************************************************** Functions */
 function getHeaderData() {
   let data = "";
-  console.log("Testing for loop:");
+  //  console.log("Testing for loop:");
   data += `
       <div class="row justify-content-center">
       <div class="col-4 col-md-2">
@@ -231,9 +236,9 @@ function getChildData() {
   //https://stackoverflow.com/questions/1027354/i-need-an-unordered-list-without-any-bullets
   data += `
   <ul class="list-unstyled">`;
-  console.log("GETTING CHILD DATA:");
+  //console.log("GETTING CHILD DATA:");
   for (const kid of activeDepartment.kids) {
-    console.log("kid.message", kid.message);
+    //console.log("kid.message", kid.message);
     //data will be concatenated to form a list of kids
     data += `
   <li>
