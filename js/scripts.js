@@ -186,11 +186,9 @@ $("#listContainer").on("click", ".actionIcon", activeDepartment, function(
   let index = node.index();
   //  console.log(">>>>>>>>>>> index: ", index);
   //  console.log(">>>>>>>>>>> node: ", node.html());
-  let statusText = $(this)
-    .find(".action")
-    .text();
-  //  console.log(">>>>> Listener: status...", status);
-  //  console.log("Listener: this...", this);
+  let statusText = node.find(".status").text();
+  console.log(">>>>> Listener: statusText...", statusText);
+  console.log("Listener: this...", this);
   //  console.log("**********************status: ", status);
   if (statusText == "Put baby in pram") {
     console.log("<- putDown() ->");
@@ -262,7 +260,7 @@ function getChildData() {
           <div class="col-12 action">${kid.action}</div>
         </div>
       </div>
-      <div class="col-3 col-md-2">
+      <div class="col-3 col-md-2 statusIcon">
         <div class="row text-center">
           <div class="col-12"><h4>Status</h4></div>
           <div class="col-12"><img src="./images/${kid.statusImg}" alt="Empty pram" /></div>
