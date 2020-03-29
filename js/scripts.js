@@ -104,7 +104,7 @@ Kid.prototype.asleepYet = function(event) {
 //Kid prototype
 Kid.prototype.takeUp = function(event) {
   this.status = "Finished sleeping";
-  this.statusImg = "emoji_baby_asleep.png";
+  this.statusImg = "empty_pram.png";
   this.actionImg = "wait.png";
   this.sleepStopTime = new Date();
   this.action = `${this.name} is finished sleeping`;
@@ -161,12 +161,12 @@ setInterval(function() {
   console.log("===========Timer function called==============");
   for (const kid of activeDepartment.kids) {
     let sleeping = Date.now() - kid.sleepStartTime; //length of time sleeping (milliseconds)
+    kid.action = `Take up ${kid.name} ${getActionMinutes(kid.takeUpTime)}`;
 
     //convert maxSleepTime from minutes to milliseconds
     if (sleeping > kid.maxSleepTime * 60000) {
       //     kid.status = `${kid.name} is asleep`;
       kid.statusImg = "emoji_baby_asleep.png";
-      kid.action = `Take up ${kid.name} ${getActionMinutes(kid.takeUpTime)}`;
       kid.actionImg = "take_up.png";
       kid.message = `${kid.name} needs to be taken up.`;
     }
@@ -187,7 +187,7 @@ $("#listContainer").on("click", ".actionIcon", activeDepartment, function(
   //  console.log(">>>>>>>>>>> index: ", index);
   //  console.log(">>>>>>>>>>> node: ", node.html());
   let statusText = node.find(".status").text();
-  console.log(">>>>> Listener: statusText...", statusText);
+  //  console.log(">>>>> Listener: statusText...", statusText);
   //  console.log("Listener: this...", this);
   //  console.log("**********************status: ", status);
   if (statusText == "Empty pram") {
@@ -279,9 +279,6 @@ function getChildData() {
   $("#listContainer").html(data);
 }
 function getActionMinutes(takeUpTime) {
-  this.sleepDuration = Math.floor(
-    (this.sleepStopTime - this.sleepStartTime) / 60000
-  );
   let timeReamaining = Math.floor((takeUpTime - Date.now()) / 60000); //convert from milliseconds to minutes
   if (timeReamaining < 1) {
     return "now!";
