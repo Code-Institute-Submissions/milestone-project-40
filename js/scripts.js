@@ -161,8 +161,9 @@ setInterval(function() {
   console.log("===========Timer function called==============");
   for (const kid of activeDepartment.kids) {
     let sleeping = Date.now() - kid.sleepStartTime; //length of time sleeping (milliseconds)
-    kid.action = `Take up ${kid.name} ${getActionMinutes(kid.takeUpTime)}`;
-
+    if (kid.status == `${kid.name} is asleep`) {
+      kid.action = `Take up ${kid.name} ${getActionMinutes(kid.takeUpTime)}`;
+    }
     //convert maxSleepTime from minutes to milliseconds
     if (sleeping > kid.maxSleepTime * 60000) {
       //     kid.status = `${kid.name} is asleep`;
