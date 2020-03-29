@@ -188,19 +188,17 @@ $("#listContainer").on("click", ".actionIcon", activeDepartment, function(
   //  console.log(">>>>>>>>>>> node: ", node.html());
   let statusText = node.find(".status").text();
   console.log(">>>>> Listener: statusText...", statusText);
-  console.log("Listener: this...", this);
+  //  console.log("Listener: this...", this);
   //  console.log("**********************status: ", status);
-  if (statusText == "Put baby in pram") {
+  if (statusText == "Empty pram") {
     console.log("<- putDown() ->");
     activeDepartment.kids[index].putDown();
   } else if (
-    statusText == `Click when ${activeDepartment.kids[index].name} is asleep`
+    statusText == `${activeDepartment.kids[index].name} awake in pram`
   ) {
     console.log("<- asleepYet() ->");
     activeDepartment.kids[index].asleepYet();
-  } else if (
-    statusText == `${activeDepartment.kids[index].name} needs to be taken up.`
-  ) {
+  } else if (statusText == `${activeDepartment.kids[index].name} is asleep`) {
     console.log("<- takeUp() ->");
     activeDepartment.kids[index].takeUp();
   }
