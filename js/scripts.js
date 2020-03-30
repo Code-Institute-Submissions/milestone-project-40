@@ -146,11 +146,14 @@ let days = [
   "Lørdag",
   "Søndag"
 ];
+//https://www.w3schools.com/js/js_date_methods.asp
 let todayDate = new Date();
-let todayDateFormatted = `${todayDate.getMonth()}.${
-  months[todayDate.getMonth()]
-} ${todayDate.getFullYear()}`;
-let todayTime = todayDate.getTime();
+let year = todayDate.getFullYear();
+let month = months[todayDate.getMonth()];
+let date = todayDate.getDate();
+let day = days[todayDate.getDay() - 1];
+console.log("todayDate.getDate() type", typeof todayDate.getDate());
+let todayDateFormatted = `${day}</br>${date}. ${month} ${year}`;
 
 //console.log("Create barnehage object.");
 let barnehage = new Kindergarten("Barnehage"); //create a Kindergarten object instance
