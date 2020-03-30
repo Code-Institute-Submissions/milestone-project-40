@@ -149,7 +149,7 @@ let todayDateFormatted = `${todayDate.getMonth()}.${
 let todayTime = todayDate.getTime();
 
 //console.log("Create barnehage object.");
-let barnehage = new Kindergarten(todayDateFormatted, 0, 20); //create a Kindergarten object instance
+let barnehage = new Kindergarten("Barnehage"); //create a Kindergarten object instance
 const activeKindergarten = barnehage; //set this Kindergarten object instance as the active kindergarten
 let avdeling = new Department("Avdeling"); //create a Department object instance
 activeKindergarten.departments.push(avdeling); //add this department to out current kindergarten
