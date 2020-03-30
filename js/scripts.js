@@ -151,7 +151,7 @@ let todayTime = todayDate.getTime();
 //console.log("Create barnehage object.");
 let barnehage = new Kindergarten("Barnehage"); //create a Kindergarten object instance
 const activeKindergarten = barnehage; //set this Kindergarten object instance as the active kindergarten
-let avdeling = new Department("Avdeling"); //create a Department object instance
+let avdeling = new Department("Avdeling", 0, 0); //create a Department object instance
 activeKindergarten.departments.push(avdeling); //add this department to out current kindergarten
 const activeDepartment = activeKindergarten.departments[0]; //set this Department object instance as the active department
 //console.log("activeKindergarten", activeKindergarten);
