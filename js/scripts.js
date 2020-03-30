@@ -226,7 +226,7 @@ function getHeaderData() {
       <div class="col-4 col-md-2">
         <div class="row text-center">
           <div class="col-12">Asleep:</div>
-          <div class="col-12">0</div>
+          <div class="col-12">${activeDepartment.kidsAsleep}</div>
         </div>
       </div>
     </div>
