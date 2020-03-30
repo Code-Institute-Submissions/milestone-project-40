@@ -100,6 +100,8 @@ Kid.prototype.asleepYet = function(event) {
   this.awakeDuration = Math.floor(
     (this.sleepStartTime - this.putDownTime) / 60000
   );
+  activeDepartment.kidsAwake--;
+  activeDepartment.kidsAsleep++;
   console.log("==>> awake duration", this.awakeDuration);
   activeDepartment.refreshList();
 };
