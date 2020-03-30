@@ -162,16 +162,16 @@ setInterval(function() {
   console.log("=========Timer============");
   for (const kid of activeDepartment.kids) {
     let sleeping = Date.now() - kid.sleepStartTime; //length of time sleeping (milliseconds)
-    kid.action = `Take up ${kid.name} ${getActionMinutes(kid.takeUpTime)}`;
-    if (
-      kid.status == `${kid.name} is asleep` &&
-      sleeping > kid.maxSleepTime * 60000
-    ) {
-      //convert maxSleepTime from minutes to milliseconds
+    if (kid.status == `${kid.name} is asleep`) {
       kid.action = `Take up ${kid.name} ${getActionMinutes(kid.takeUpTime)}`;
-      kid.actionImg = "take_up.png";
-      kid.statusImg = "emoji_baby_asleep.png";
-      kid.message = `${kid.name} needs to be taken up.`;
+
+      if (sleeping > kid.maxSleepTime * 60000) {
+        //convert maxSleepTime from minutes to milliseconds
+        kid.action = `Take up ${kid.name} ${getActionMinutes(kid.takeUpTime)}`;
+        kid.actionImg = "take_up.png";
+        kid.statusImg = "emoji_baby_asleep.png";
+        kid.message = `${kid.name} needs to be taken up.`;
+      }
     }
   }
   //  console.log("=======>> Refreshing from timer", barnehage);
