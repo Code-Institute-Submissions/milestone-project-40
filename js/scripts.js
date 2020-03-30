@@ -20,7 +20,7 @@ Department.prototype.importList = function(event) {
       "empty_pram.png",
       "Put baby in pram",
       "put_down.png",
-      5,
+      2,
       "Click to put baby in pram"
     )
   );
@@ -85,6 +85,7 @@ Kid.prototype.putDown = function(event) {
 };
 //Kid prototype
 Kid.prototype.asleepYet = function(event) {
+  //  debugger;
   this.status = `${this.name} is asleep`;
   this.statusImg = "emoji_baby_asleep.png";
   this.actionImg = "wait.png";
@@ -98,7 +99,7 @@ Kid.prototype.asleepYet = function(event) {
   this.awakeDuration = Math.floor(
     (this.sleepStartTime - this.putDownTime) / 60000
   );
-  console.log("=======>> Refreshing from asleepYet()", barnehage);
+  console.log("==>> awake duration", this.awakeDuration);
   activeDepartment.refreshList();
 };
 //Kid prototype
@@ -112,7 +113,7 @@ Kid.prototype.takeUp = function(event) {
   this.sleepDuration = Math.floor(
     (this.sleepStopTime - this.sleepStartTime) / 60000
   );
-  console.log("=======>> Slept for (mins): ", this.sleepDuration);
+  console.log("==>> Slept for (mins): ", this.sleepDuration);
   activeDepartment.refreshList();
 };
 
@@ -158,21 +159,22 @@ const activeDepartment = activeKindergarten.departments[0]; //set this Departmen
 
 //https://www.w3schools.com/jsref/met_win_setinterval.asp
 setInterval(function() {
-  console.log("===========Timer function called==============");
+  console.log("=========Timer============");
   for (const kid of activeDepartment.kids) {
     let sleeping = Date.now() - kid.sleepStartTime; //length of time sleeping (milliseconds)
-    if (kid.status == `${kid.name} is asleep`) {
+    kid.action = `Take up ${kid.name} ${getActionMinutes(kid.takeUpTime)}`;
+    if (
+      kid.status == `${kid.name} is asleep` &&
+      sleeping > kid.maxSleepTime * 60000
+    ) {
+      //convert maxSleepTime from minutes to milliseconds
       kid.action = `Take up ${kid.name} ${getActionMinutes(kid.takeUpTime)}`;
       kid.actionImg = "take_up.png";
-    }
-    //convert maxSleepTime from minutes to milliseconds
-    if (sleeping > kid.maxSleepTime * 60000) {
-      //     kid.status = `${kid.name} is asleep`;
       kid.statusImg = "emoji_baby_asleep.png";
       kid.message = `${kid.name} needs to be taken up.`;
     }
   }
-  console.log("=======>> Refreshing from timer", barnehage);
+  //  console.log("=======>> Refreshing from timer", barnehage);
   activeDepartment.refreshList();
 }, 10000);
 
@@ -189,9 +191,6 @@ $("#listContainer").on("click", ".actionIcon", activeDepartment, function(
   //  console.log(">>>>>>>>>>> index: ", index);
   //  console.log(">>>>>>>>>>> node: ", node.html());
   let statusText = node.find(".status").text();
-  //  console.log(">>>>> Listener: statusText...", statusText);
-  //  console.log("Listener: this...", this);
-  //  console.log("**********************status: ", status);
   if (statusText == "Empty pram") {
     console.log("<- putDown() ->");
     activeDepartment.kids[index].putDown();
