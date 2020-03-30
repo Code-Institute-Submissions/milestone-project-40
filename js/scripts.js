@@ -13,28 +13,8 @@ function Department(name, kidsAwake, kidsAsleep) {
 }
 //Department prototype
 Department.prototype.importList = function(event) {
-  this.kids.push(
-    new Kid(
-      "Mathew",
-      "Empty pram",
-      "empty_pram.png",
-      "Put baby in pram",
-      "put_down.png",
-      2,
-      "Click to put baby in pram"
-    )
-  );
-  this.kids.push(
-    new Kid(
-      "John",
-      "Empty pram",
-      "empty_pram.png",
-      "Put baby in pram",
-      "put_down.png",
-      1,
-      "Click to put baby in pram"
-    )
-  );
+  this.kids.push(new Kid("Mathew", 2));
+  this.kids.push(new Kid("John", 1));
   this.refreshList();
 };
 //Department prototype
@@ -46,11 +26,11 @@ Department.prototype.refreshList = function(event) {
 //define Kid object (constructor function)
 function Kid(
   name,
+  maxSleepTime,
   status,
   statusImg,
   action,
   actionImg,
-  maxSleepTime,
   message,
   putDownTime,
   sleepStartTime,
@@ -60,13 +40,13 @@ function Kid(
   sleepDuration
 ) {
   this.name = name;
-  this.status = status;
-  this.statusImg = statusImg;
-  this.action = action;
-  this.actionImg = actionImg;
+  this.status = "Empty pram";
+  this.statusImg = "empty_pram.png";
+  this.action = "Put baby in pram";
+  this.actionImg = "put_down.png";
   this.putDownTime = putDownTime; //time when kid was put in pram
   this.maxSleepTime = maxSleepTime; //maximum time kid should sleep for (given by parents)
-  this.message = message; //message description
+  this.message = "Click to put baby in pram"; //message description
   this.sleepStartTime = sleepStartTime; //time when kid fell asleep
   this.sleepStopTime = sleepStopTime; //time when kid woke up
   this.takeUpTime = takeUpTime; //time when kid was taken out of pram
@@ -152,10 +132,8 @@ let year = todayDate.getFullYear();
 let month = months[todayDate.getMonth()];
 let date = todayDate.getDate();
 let day = days[todayDate.getDay() - 1];
-console.log("todayDate.getDate() type", typeof todayDate.getDate());
 let todayDateFormatted = `${day}</br>${date}. ${month} ${year}`;
 
-//console.log("Create barnehage object.");
 let barnehage = new Kindergarten("Barnehage"); //create a Kindergarten object instance
 const activeKindergarten = barnehage; //set this Kindergarten object instance as the active kindergarten
 let avdeling = new Department("Avdeling", 0, 0); //create a Department object instance
