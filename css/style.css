@@ -1,15 +1,24 @@
+/* https://css-tricks.com/centering-css-complete-guide/ */
+.more-info {
+  position: relative;
+}
+.more-info .row {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
 .kid-row {
   border: 1px solid grey;
   border-radius: 5px;
 }
 .kid-awake {
-  background-color: green;
+  background-color: #cbe2b0;
 }
 .kid-asleep {
-  background-color: grey;
+  background-color: #dcd6f7;
 }
 .kid-takeup {
-  background-color: red;
+  background-color: #f19292;
 }
 .btn-strong {
 }
