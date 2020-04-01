@@ -1,114 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://kit.fontawesome.com/d233284cfb.js"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>Barnevakt</title>
-  </head>
 
-  <body>
-    <header>
-      <!-- Bootsrap navbar from the official documentation https://getbootstrap.com/docs/4.3/components/navbar/-->
-      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <!--logo and site name-->
-        <a class="navbar-brand" href="index.html">
-          <i class="fas fa-baby-carriage"></i>
-          <!--        <img class="logo" src="favicon-32x32.png" alt="Logo" />-->
-          <span>Barnevakt</span>
-        </a>
-        <!--menu button-->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <!--everything in here gets collapsed at the relevant break point-->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="index.html">
-                <i class="fas fa-home"></i> Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class="fas fa-cog"></i> Settings
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class="fas fa-envelope"></i> About Us
-              </a>
-            </li>
-          </ul>
-          <!--navbar-nav-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <script src="https://kit.fontawesome.com/d233284cfb.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init("user_YRP1URxsaLR8diyWdpRBr");
+    })();
+  </script>
+  <title>Barnevakt</title>
+</head>
+
+<body>
+  <header>
+    <!-- Bootsrap navbar from the official documentation https://getbootstrap.com/docs/4.3/components/navbar/-->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <!--logo and site name-->
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-baby-carriage"></i>
+        <!--        <img class="logo" src="favicon-32x32.png" alt="Logo" />-->
+        <span>Barnevakt</span>
+      </a>
+      <!--menu button-->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!--everything in here gets collapsed at the relevant break point-->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">
+              <i class="fas fa-home"></i> Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-cog"></i> Settings
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-envelope"></i> About Us
+            </a>
+          </li>
+        </ul>
+        <!--navbar-nav-->
+      </div>
+      <!--collapse-->
+    </nav>
+  </header>
+  <main>
+    <div id="kindergarten" class="container-fluid">
+      <div class="row justify-content-center text-center">
+        <div id="appSummaryData" class="col-12 col-md-8">
+          <h1>Welcome to barnevakt</h1>
+          <br />
+          To start the day, please click the
+          <strong>Import List</strong> button below. This will get the list of
+          children.
         </div>
-        <!--collapse-->
-      </nav>
-    </header>
-    <main>
-      <div id="kindergarten" class="container-fluid">
-        <div class="row justify-content-center text-center">
-          <div id="appSummaryData" class="col-12 col-md-8">
-            <h1>Welcome to barnevakt</h1>
-            <br />
-            To start the day, please click the
-            <strong>Import List</strong> button below. This will get the list of
-            children.
-          </div>
-          <div id="listContainer" class="col-12 col-md-8">
-            <button type="button" id="btnImportList" class="btn btn-primary">
-              Import List
-            </button>
-          </div>
+        <div id="listContainer" class="col-12 col-md-8">
+          <button type="button" id="btnImportList" class="btn btn-primary">
+            Import List
+          </button>
         </div>
       </div>
-    </main>
-    <div id="map"></div>
-    <footer></footer>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-    <script src="js/scripts.js"></script>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKSDC58CxyD3a8AdOaVEmbz7tbkxsqX5Q&callback=initMap"
-      async
-      defer
-    ></script>
-  </body>
+    </div>
+  </main>
+  <div id="map"></div>
+  <footer></footer>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="js/scripts.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKSDC58CxyD3a8AdOaVEmbz7tbkxsqX5Q&callback=initMap"
+    async defer></script>
+</body>
+
 </html>
