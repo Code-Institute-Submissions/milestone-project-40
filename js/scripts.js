@@ -248,7 +248,7 @@ function getChildData() {
     //data will be concatenated to form a list of kids
     data += `
   <li>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center kid-row">
       <div class="col-3 col-md-2">
         <div class="row text-center">
           <div class="col-12"><h4>Child</h4></div>
