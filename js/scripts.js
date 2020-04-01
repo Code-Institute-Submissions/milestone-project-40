@@ -12,13 +12,13 @@ function Department(name, kidsAwake, kidsAsleep) {
   this.kids = []; //array of Kid objects
 }
 //Department prototype
-Department.prototype.importList = function(event) {
+Department.prototype.importList = function (event) {
   this.kids.push(new Kid("Mathew", 2));
   this.kids.push(new Kid("John", 1));
   this.refreshList();
 };
 //Department prototype
-Department.prototype.refreshList = function(event) {
+Department.prototype.refreshList = function (event) {
   //  console.log("REFRESHING LIST...");
   getHeaderData();
   getChildData();
@@ -53,7 +53,7 @@ function Kid(
   this.awakeDuration = awakeDuration; //total time kid was awake (before sleeping)
   this.sleepDuration = sleepDuration; //total time kid was sleeping
 }
-Kid.prototype.putDown = function(event) {
+Kid.prototype.putDown = function (event) {
   this.status = `${this.name} awake in pram`;
   this.statusImg = "emoji_baby_awake_in_pram.png";
   this.action = `Click when ${this.name} is asleep`;
@@ -65,7 +65,7 @@ Kid.prototype.putDown = function(event) {
   activeDepartment.refreshList();
 };
 //Kid prototype
-Kid.prototype.asleepYet = function(event) {
+Kid.prototype.asleepYet = function (event) {
   //  debugger;
   this.status = `${this.name} is asleep`;
   this.statusImg = "emoji_baby_asleep.png";
@@ -86,7 +86,7 @@ Kid.prototype.asleepYet = function(event) {
   activeDepartment.refreshList();
 };
 //Kid prototype
-Kid.prototype.takeUp = function(event) {
+Kid.prototype.takeUp = function (event) {
   this.status = "Finished sleeping";
   this.statusImg = "empty_pram.png";
   this.actionImg = "empty_pram.png";
@@ -133,6 +133,7 @@ let month = months[todayDate.getMonth()];
 let date = todayDate.getDate();
 let day = days[todayDate.getDay() - 1];
 let todayDateFormatted = `${day}</br>${date}. ${month} ${year}`;
+let dayStarted = false;
 
 var map;
 function initMap() {
@@ -152,7 +153,7 @@ const activeDepartment = activeKindergarten.departments[0]; //set this Departmen
 //console.log("Weather is: ", weather.summary);
 
 //https://www.w3schools.com/jsref/met_win_setinterval.asp
-setInterval(function() {
+setInterval(function () {
   console.log("=========Timer============");
   for (const kid of activeDepartment.kids) {
     let sleeping = Date.now() - kid.sleepStartTime; //length of time sleeping (milliseconds)
@@ -171,7 +172,7 @@ setInterval(function() {
   //  console.log("=======>> Refreshing from timer", barnehage);
   activeDepartment.refreshList();
 }, 10000);
-setInterval(function() {
+setInterval(function () {
   console.log("=======API Timer==========");
   activeDepartment.refreshList();
 }, 30000);
@@ -179,7 +180,7 @@ setInterval(function() {
 /***************************************************************** EVENT LISTENERS */
 $("#btnImportList").on("click", $.proxy(activeDepartment, "importList"));
 
-$("#listContainer").on("click", ".actionIcon", activeDepartment, function(
+$("#listContainer").on("click", ".actionIcon", activeDepartment, function (
   event
 ) {
   let node = $(this)
