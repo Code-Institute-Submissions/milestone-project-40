@@ -13,6 +13,7 @@ function Department(name, kidsAwake, kidsAsleep) {
 }
 //Department prototype
 Department.prototype.importList = function (event) {
+  dayStarted = true;
   this.kids.push(new Kid("Mathew", 2));
   this.kids.push(new Kid("John", 1));
   this.refreshList();
@@ -170,11 +171,15 @@ setInterval(function () {
     }
   }
   //  console.log("=======>> Refreshing from timer", barnehage);
-  activeDepartment.refreshList();
+  if (dayStarted) {
+    activeDepartment.refreshList();
+  }
 }, 10000);
 setInterval(function () {
   console.log("=======API Timer==========");
-  activeDepartment.refreshList();
+  if (dayStarted) {
+    activeDepartment.refreshList();
+  }
 }, 30000);
 
 /***************************************************************** EVENT LISTENERS */
