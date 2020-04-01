@@ -38,7 +38,8 @@ function Kid(
   sleepStopTime,
   takeUpTime,
   awakeDuration,
-  sleepDuration
+  sleepDuration,
+  rowClass
 ) {
   this.name = name;
   this.status = "Empty pram";
@@ -53,6 +54,7 @@ function Kid(
   this.takeUpTime = takeUpTime; //time when kid was taken out of pram
   this.awakeDuration = awakeDuration; //total time kid was awake (before sleeping)
   this.sleepDuration = sleepDuration; //total time kid was sleeping
+  this.rowClass = "kid-awake";
 }
 Kid.prototype.putDown = function (event) {
   this.status = `${this.name} awake in pram`;
@@ -248,7 +250,7 @@ function getChildData() {
     //data will be concatenated to form a list of kids
     data += `
   <li>
-    <div class="row justify-content-center kid-row">
+    <div class="row justify-content-center kid-row ${kid.rowClass}">
       <div class="col-3 col-md-2">
         <div class="row text-center">
           <div class="col-12"><h4>Child</h4></div>
