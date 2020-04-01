@@ -39,7 +39,8 @@ function Kid(
   takeUpTime,
   awakeDuration,
   sleepDuration,
-  rowClass
+  rowClass,
+  priority
 ) {
   this.name = name;
   this.status = "Empty pram";
@@ -55,6 +56,7 @@ function Kid(
   this.awakeDuration = awakeDuration; //total time kid was awake (before sleeping)
   this.sleepDuration = sleepDuration; //total time kid was sleeping
   this.rowClass = "kid-awake";
+  this.priority = 1; //determines where a kid is placed on our list
 }
 Kid.prototype.putDown = function (event) {
   this.status = `${this.name} awake in pram`;
