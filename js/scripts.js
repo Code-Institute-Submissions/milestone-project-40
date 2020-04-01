@@ -270,7 +270,7 @@ function getChildData() {
           <div class="col-12 status">${kid.status}</div>
         </div>
       </div>
-      <div class="col-3 col-md-2">
+      <div class="col-3 col-md-2 more-info">
         <div class="row text-center">
           <div class="col-12"><i class="fas fa-info-circle fa-3x"></i></div>
           <div class="col-12">more info...</div>
