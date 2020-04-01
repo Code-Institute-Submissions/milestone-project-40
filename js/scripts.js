@@ -158,7 +158,7 @@ function initMap() {
 }
 if ("vibrate" in navigator) {
   navigator.vibrate(1000);
-  //alert("vibration works");
+  alert("vibration works");
 
   // vibration API supported
 }
