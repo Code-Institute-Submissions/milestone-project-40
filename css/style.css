@@ -1,3 +1,18 @@
+.kid-row {
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+.kid-awake {
+  background-color: green;
+}
+.kid-asleep {
+  background-color: grey;
+}
+.kid-takeup {
+  background-color: red;
+}
+
+/*************************************************************** Google maps */
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
 #map {
