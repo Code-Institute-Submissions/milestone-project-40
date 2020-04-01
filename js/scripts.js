@@ -63,6 +63,7 @@ Kid.prototype.putDown = function (event) {
   this.actionImg = "asleep_yet.png";
   this.putDownTime = new Date();
   this.message = `Click when ${this.name} is asleep.`;
+  this.rowClass = "kid-awake";
   activeDepartment.kidsAwake++;
   //  console.log("***** put down mathew at: ", this.putDownTime);
   activeDepartment.refreshList();
