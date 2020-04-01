@@ -84,6 +84,7 @@ Kid.prototype.asleepYet = function (event) {
   this.awakeDuration = Math.floor(
     (this.sleepStartTime - this.putDownTime) / 60000
   );
+  this.rowClass = "kid-asleep";
   activeDepartment.kidsAwake--;
   activeDepartment.kidsAsleep++;
   console.log("==>> awake duration", this.awakeDuration);
