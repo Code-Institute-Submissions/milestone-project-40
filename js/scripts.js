@@ -158,7 +158,6 @@ function initMap() {
 }
 if ("vibrate" in navigator) {
   navigator.vibrate(1000);
-  Navigator.vibrate(1000);
   window.navigator.vibrate(1000);
   alert("vibration works");
 
