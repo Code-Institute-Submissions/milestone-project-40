@@ -20,7 +20,11 @@ Department.prototype.importList = function (event) {
 };
 //Department prototype
 Department.prototype.refreshList = function (event) {
-  //  console.log("REFRESHING LIST...");
+  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+  console.log("SORTING ARRAY", activeDepartment);
+  activeDepartment.kids.sort(function (a, b) {
+    return a.priority - b.priority;
+  });
   getHeaderData();
   getChildData();
 };
