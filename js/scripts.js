@@ -148,13 +148,19 @@ let date = todayDate.getDate();
 let day = days[todayDate.getDay() - 1];
 let todayDateFormatted = `${day}</br>${date}. ${month} ${year}`;
 let dayStarted = false;
-
-var map;
+let map;
 function initMap() {
+  console.log("inside initMap()");
   let map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: -34.397, lng: 150.644 },
     zoom: 8
   });
+}
+if ("vibrate" in navigator) {
+  navigator.vibrate(1000);
+  //alert("vibration works");
+
+  // vibration API supported
 }
 let barnehage = new Kindergarten("Barnehage"); //create a Kindergarten object instance
 const activeKindergarten = barnehage; //set this Kindergarten object instance as the active kindergarten
@@ -291,7 +297,7 @@ function getChildData() {
           <div class="col-12">more info...</div>
         </div>
       </div>
-      <div class="col-12 text-center">${kid.message}</div>
+      <div class="col-12 text-center message">${kid.message}</div>
     </div>
   </li>`;
   }
@@ -305,4 +311,11 @@ function getActionMinutes(takeUpTime) {
   } else {
     return `in ${timeReamaining} mins`;
   }
+}
+function initMap() {
+  console.log("inside initMap()");
+  let map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 8
+  });
 }
