@@ -101,7 +101,6 @@ Kid.prototype.takeUp = function (event) {
   this.sleepDuration = Math.floor(
     (this.sleepStopTime - this.sleepStartTime) / 60000
   );
-  this.rowClass = "kid-takeup";
   activeDepartment.kidsAsleep--;
   console.log("==>> Slept for (mins): ", this.sleepDuration);
   activeDepartment.refreshList();
@@ -172,6 +171,7 @@ setInterval(function () {
         kid.actionImg = "take_up.png";
         kid.statusImg = "emoji_baby_asleep.png";
         kid.message = `${kid.name} needs to be taken up.`;
+        kid.rowClass = "kid-takeup";
       }
     }
   }
