@@ -60,7 +60,7 @@ function Kid(
   this.awakeDuration = awakeDuration; //total time kid was awake (before sleeping)
   this.sleepDuration = sleepDuration; //total time kid was sleeping
   this.rowClass = "kid-awake";
-  this.priority = 1; //determines where a kid is placed on our list
+  this.priority = 2; //determines where a kid is placed on our list
 }
 Kid.prototype.putDown = function (event) {
   this.status = `${this.name} awake in pram`;
@@ -70,7 +70,7 @@ Kid.prototype.putDown = function (event) {
   this.putDownTime = new Date();
   this.message = `Click when ${this.name} is asleep.`;
   this.rowClass = "kid-awake";
-  this.priority = 2;
+  this.priority = 3;
   activeDepartment.kidsAwake++;
   //  console.log("***** put down mathew at: ", this.putDownTime);
   activeDepartment.refreshList();
@@ -92,7 +92,7 @@ Kid.prototype.asleepYet = function (event) {
     (this.sleepStartTime - this.putDownTime) / 60000
   );
   this.rowClass = "kid-asleep";
-  this.priority = 3;
+  this.priority = 4;
   activeDepartment.kidsAwake--;
   activeDepartment.kidsAsleep++;
   console.log("==>> awake duration", this.awakeDuration);
@@ -110,7 +110,7 @@ Kid.prototype.takeUp = function (event) {
     (this.sleepStopTime - this.sleepStartTime) / 60000
   );
   activeDepartment.kidsAsleep--;
-  this.priority = 0;
+  this.priority = 5;
   console.log("==>> Slept for (mins): ", this.sleepDuration);
   activeDepartment.refreshList();
 };
@@ -181,6 +181,7 @@ setInterval(function () {
         kid.statusImg = "emoji_baby_asleep.png";
         kid.message = `${kid.name} needs to be taken up.`;
         kid.rowClass = "kid-takeup";
+        kid.priority = 1;
       }
     }
   }
