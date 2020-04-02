@@ -13,17 +13,16 @@ function Department(name, kidsAwake, kidsAsleep) {
 }
 //Department prototype
 Department.prototype.importList = function (event) {
+  if ("vibrate" in navigator) {
+    navigator.vibrate(1000);
+    //    window.navigator.vibrate(1000);
+    alert("vibration test1");
+    // vibration API supported
+  }
   dayStarted = true;
   this.kids.push(new Kid("Mathew", 2));
   this.kids.push(new Kid("John", 1));
   this.refreshList();
-  if ("vibrate" in navigator) {
-    navigator.vibrate(1000);
-    window.navigator.vibrate(1000);
-    alert("vibration test");
-
-    // vibration API supported
-  }
 };
 //Department prototype
 Department.prototype.refreshList = function (event) {
