@@ -16,7 +16,7 @@ Department.prototype.importList = function (event) {
   if ("vibrate" in navigator) {
     navigator.vibrate(1000);
     //    window.navigator.vibrate(1000);
-    alert("vibration test1");
+    //    alert("vibration test1");
     // vibration API supported
   }
   dayStarted = true;
@@ -155,13 +155,7 @@ let day = days[todayDate.getDay() - 1];
 let todayDateFormatted = `${day}</br>${date}. ${month} ${year}`;
 let dayStarted = false;
 let map;
-function initMap() {
-  console.log("inside initMap()");
-  let map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8
-  });
-}
+
 let barnehage = new Kindergarten("Barnehage"); //create a Kindergarten object instance
 const activeKindergarten = barnehage; //set this Kindergarten object instance as the active kindergarten
 let avdeling = new Department("Avdeling", 0, 0); //create a Department object instance
@@ -169,8 +163,6 @@ activeKindergarten.departments.push(avdeling); //add this department to out curr
 const activeDepartment = activeKindergarten.departments[0]; //set this Department object instance as the active department
 //console.log("activeKindergarten", activeKindergarten);
 //console.log("activeDepartment", activeDepartment);
-
-//console.log("Weather is: ", weather.summary);
 
 //https://www.w3schools.com/jsref/met_win_setinterval.asp
 setInterval(function () {
@@ -315,7 +307,7 @@ function getActionMinutes(takeUpTime) {
 function initMap() {
   console.log("inside initMap()");
   let map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8
+    center: { lat: 58.85244, lng: 5.73521 },
+    zoom: 12
   });
 }
