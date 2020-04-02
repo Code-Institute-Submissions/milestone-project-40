@@ -17,6 +17,13 @@ Department.prototype.importList = function (event) {
   this.kids.push(new Kid("Mathew", 2));
   this.kids.push(new Kid("John", 1));
   this.refreshList();
+  if ("vibrate" in navigator) {
+    navigator.vibrate(1000);
+    window.navigator.vibrate(1000);
+    alert("vibration test");
+
+    // vibration API supported
+  }
 };
 //Department prototype
 Department.prototype.refreshList = function (event) {
@@ -155,13 +162,6 @@ function initMap() {
     center: { lat: -34.397, lng: 150.644 },
     zoom: 8
   });
-}
-if ("vibrate" in navigator) {
-  navigator.vibrate(1000);
-  window.navigator.vibrate(1000);
-  alert("vibration works");
-
-  // vibration API supported
 }
 let barnehage = new Kindergarten("Barnehage"); //create a Kindergarten object instance
 const activeKindergarten = barnehage; //set this Kindergarten object instance as the active kindergarten
