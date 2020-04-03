@@ -20,6 +20,8 @@ Department.prototype.importList = function (event) {
     // vibration API supported
   }
   dayStarted = true;
+  this.kids.push(new Kid("Tina", 4));
+  this.kids.push(new Kid("Jane", 3));
   this.kids.push(new Kid("Mathew", 2));
   this.kids.push(new Kid("John", 1));
   this.refreshList();
