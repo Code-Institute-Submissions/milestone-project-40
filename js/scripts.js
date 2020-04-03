@@ -116,6 +116,7 @@ Kid.prototype.takeUp = function (event) {
     (this.sleepStopTime - this.sleepStartTime) / 60000
   );
   activeDepartment.kidsAsleep--;
+  this.rowClass = "";
   this.priority = 5;
   console.log("==>> Slept for (mins): ", this.sleepDuration);
   activeDepartment.refreshList();
