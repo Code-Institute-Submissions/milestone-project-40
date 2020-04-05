@@ -228,6 +228,8 @@ $("#listContainer").on("click", ".actionIcon", activeDepartment, function (
     activeDepartment.kids[index].asleepYet();
   } else if (statusText == `${activeDepartment.kids[index].name} is asleep`) {
     console.log("<- takeUp() ->");
+    let awake = $("#appSummaryData");
+    //  let asleep = ;
     $(`#listContainer ul li:nth-child(${index + 1})`).slideUp();
     activeDepartment.kids[index].takeUp();
   }
@@ -248,7 +250,7 @@ function getHeaderData() {
       <div class="col-4 col-md-2">
         <div class="row text-center">
           <div class="col-12">Awake:</div>
-          <div class="col-12">${activeDepartment.kidsAwake}</div>
+          <div class="col-12 awake-total">${activeDepartment.kidsAwake}</div>
         </div>
       </div>
       <div class="col-4 col-md-2">
