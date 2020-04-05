@@ -226,6 +226,7 @@ $("#listContainer").on("click", ".actionIcon", activeDepartment, function (
     activeDepartment.kids[index].asleepYet();
   } else if (statusText == `${activeDepartment.kids[index].name} is asleep`) {
     console.log("<- takeUp() ->");
+    $(`#listContainer ul li:nth-child(${index + 1})`).slideUp();
     activeDepartment.kids[index].takeUp();
   }
 }); //jQuery event listener
