@@ -149,20 +149,23 @@ let months = [
   "Desember"
 ];
 let days = [
+  "Søndag",
   "Mandag",
   "Tirsdag",
   "Onsdag",
   "Torsdag",
   "Fredag",
-  "Lørdag",
-  "Søndag"
+  "Lørdag"
 ];
 //https://www.w3schools.com/js/js_date_methods.asp
 let todayDate = new Date();
 let year = todayDate.getFullYear();
 let month = months[todayDate.getMonth()];
+console.log(">>>>>MONTH", month);
 let date = todayDate.getDate();
-let day = days[todayDate.getDay() - 1];
+console.log(">>>>>DATE", date);
+let day = days[todayDate.getDay()];
+console.log(">>>>>DAY", day);
 let todayDateFormatted = `${day}</br>${date}. ${month} ${year}`;
 let dayStarted = false;
 let map;
