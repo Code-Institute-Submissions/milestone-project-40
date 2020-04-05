@@ -127,6 +127,7 @@ Kid.prototype.takeUp = function (event) {
   activeDepartment.kidsAsleep--;
   this.rowClass = "";
   this.priority = 5;
+  this.visibility = "hidden";
   console.log("==>> Slept for (mins): ", this.sleepDuration);
 };
 
