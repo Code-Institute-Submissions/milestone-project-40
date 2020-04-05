@@ -281,7 +281,7 @@ function getChildData() {
             <div class="col-12">${kid.name}</div>
           </div>
         </div>
-        <div class="col-3 col-md-2 actionIcon">
+        <div class="col-3 col-md-2 actionIcon btn btn-outline-light">
           <div class="row text-center">
             <div class="col-12"><h4>Action</h4></div>
             <div class="col-12"><img src="./images/${kid.actionImg}" alt="Put baby down to sleep" /></div>
