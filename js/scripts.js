@@ -129,6 +129,7 @@ Kid.prototype.takeUp = function (event) {
   this.priority = 5;
   this.visibility = "hidden";
   console.log("==>> Slept for (mins): ", this.sleepDuration);
+  activeDepartment.refreshList();
 };
 
 /*********************************************************************************START */
