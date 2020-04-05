@@ -228,7 +228,8 @@ $("#listContainer").on("click", ".actionIcon", activeDepartment, function (
     activeDepartment.kids[index].asleepYet();
   } else if (statusText == `${activeDepartment.kids[index].name} is asleep`) {
     console.log("<- takeUp() ->");
-    let awake = $("#appSummaryData");
+    let awake = parseInt($("#appSummaryData").find(".awake-total").text();
+    console.log("awake-total", awake);
     //  let asleep = ;
     $(`#listContainer ul li:nth-child(${index + 1})`).slideUp();
     activeDepartment.kids[index].takeUp();
