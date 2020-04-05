@@ -238,7 +238,8 @@ function getHeaderData() {
   let data = "";
   //  console.log("Testing for loop:");
   data += `
-      <div class="row justify-content-center">
+  <div class="container-fluid bg-info">
+    <div class="row justify-content-center">
       <div class="col-4 col-md-2">
         <div class="row text-center">
           <div class="col-12">Date:</div>
@@ -258,6 +259,7 @@ function getHeaderData() {
         </div>
       </div>
     </div>
+  </div>
   `;
   $("#appSummaryData").html(data);
 }
