@@ -92,7 +92,6 @@ Kid.prototype.putDown = function (event) {
 };
 //Kid prototype
 Kid.prototype.asleepYet = function (event) {
-  //  debugger;
   this.status = `${this.name} is asleep`;
   this.statusImg = "emoji_baby_asleep.png";
   this.actionImg = "wait.png";
@@ -161,11 +160,8 @@ let days = [
 let todayDate = new Date();
 let year = todayDate.getFullYear();
 let month = months[todayDate.getMonth()];
-console.log(">>>>>MONTH", month);
 let date = todayDate.getDate();
-console.log(">>>>>DATE", date);
 let day = days[todayDate.getDay()];
-console.log(">>>>>DAY", day);
 let todayDateFormatted = `${day}</br>${date}. ${month} ${year}`;
 let dayStarted = false;
 let map;
@@ -175,8 +171,6 @@ const activeKindergarten = barnehage; //set this Kindergarten object instance as
 let avdeling = new Department("Avdeling", 0, 0); //create a Department object instance
 activeKindergarten.departments.push(avdeling); //add this department to out current kindergarten
 const activeDepartment = activeKindergarten.departments[0]; //set this Department object instance as the active department
-//console.log("activeKindergarten", activeKindergarten);
-//console.log("activeDepartment", activeDepartment);
 
 //https://www.w3schools.com/jsref/met_win_setinterval.asp
 setInterval(function () {
@@ -217,10 +211,11 @@ $("#listContainer").on("click", ".actionIcon", activeDepartment, function (
 ) {
   let node = $(this)
     .parent()
+    .parent()
     .parent();
   let index = node.index();
-  //  console.log(">>>>>>>>>>> index: ", index);
-  //  console.log(">>>>>>>>>>> node: ", node.html());
+  console.log(">>>>>>>>>>> index: ", index);
+  console.log(">>>>>>>>>>> node: ", node.html());
   let statusText = node.find(".status").text();
   if (statusText == "Empty pram") {
     console.log("<- putDown() ->");
