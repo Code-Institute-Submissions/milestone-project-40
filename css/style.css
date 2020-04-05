@@ -28,6 +28,13 @@
 }
 .btn-subtle {
 }
+.btn-outline-light {
+  margin: 3px 0 6px;
+  border-radius: 10px;
+  box-shadow: 5px 10px 14px #888888;
+  cursor: pointer;
+  color: #212529;
+}
 .message {
   background-color: #5d5b6a;
   color: beige;
