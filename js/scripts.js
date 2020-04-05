@@ -270,7 +270,7 @@ function getChildData() {
     //console.log("kid.message", kid.message);
     //data will be concatenated to form a list of kids
     data += `
-  <li>
+  <li ${kid.visibility}>
     <div class="row justify-content-center kid-row ${kid.rowClass}">
       <div class="col-3 col-md-2">
         <div class="row text-center">
