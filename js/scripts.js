@@ -201,7 +201,7 @@ setInterval(function () {
   if (dayStarted) {
     activeDepartment.refreshList();
   }
-}, 10000);
+}, 100000);
 setInterval(function () {
   console.log("=======API Timer==========");
   if (dayStarted) {
@@ -276,38 +276,40 @@ function getChildData() {
     //console.log("kid.message", kid.message);
     //data will be concatenated to form a list of kids
     data += `
-  <li ${kid.visibility}>
-    <div class="row justify-content-center kid-row ${kid.rowClass}">
-      <div class="col-3 col-md-2">
-        <div class="row text-center">
-          <div class="col-12"><h4>Child</h4></div>
-          <div class="col-12"><i class="fas fa-user-alt fa-3x"></i></div>
-          <div class="col-12">${kid.name}</div>
+    <li ${kid.visibility}>
+      <div class="container-fluid">
+        <div class="row justify-content-center kid-row ${kid.rowClass}">
+          <div class="col-3 col-md-2">
+            <div class="row text-center">
+            <div class="col-12"><h4>Child</h4></div>
+            <div class="col-12"><i class="fas fa-user-alt fa-3x"></i></div>
+            <div class="col-12">${kid.name}</div>
+          </div>
+        </div>
+        <div class="col-3 col-md-2 actionIcon">
+          <div class="row text-center">
+            <div class="col-12"><h4>Action</h4></div>
+            <div class="col-12"><img src="./images/${kid.actionImg}" alt="Put baby down to sleep" /></div>
+            <div class="col-12 action">${kid.action}</div>
+          </div>
+        </div>
+        <div class="col-3 col-md-2 statusIcon">
+          <div class="row text-center">
+            <div class="col-12"><h4>Status</h4></div>
+            <div class="col-12"><img src="./images/${kid.statusImg}" alt="Empty pram" /></div>
+            <div class="col-12 status">${kid.status}</div>
+          </div>
+        </div>
+        <div class="col-3 col-md-2 more-info">
+          <div class="row text-center">
+            <div class="col-12"><i class="fas fa-info-circle fa-3x"></i></div>
+            <div class="col-12">more info...</div>
+          </div>
+        </div>
+        <div class="col-12 text-center message">${kid.message}</div>
         </div>
       </div>
-      <div class="col-3 col-md-2 actionIcon">
-        <div class="row text-center">
-          <div class="col-12"><h4>Action</h4></div>
-          <div class="col-12"><img src="./images/${kid.actionImg}" alt="Put baby down to sleep" /></div>
-          <div class="col-12 action">${kid.action}</div>
-        </div>
-      </div>
-      <div class="col-3 col-md-2 statusIcon">
-        <div class="row text-center">
-          <div class="col-12"><h4>Status</h4></div>
-          <div class="col-12"><img src="./images/${kid.statusImg}" alt="Empty pram" /></div>
-          <div class="col-12 status">${kid.status}</div>
-        </div>
-      </div>
-      <div class="col-3 col-md-2 more-info">
-        <div class="row text-center">
-          <div class="col-12"><i class="fas fa-info-circle fa-3x"></i></div>
-          <div class="col-12">more info...</div>
-        </div>
-      </div>
-      <div class="col-12 text-center message">${kid.message}</div>
-    </div>
-  </li>`;
+    </li>`;
   }
   data += `</ul >`;
   $("#listContainer").html(data);
