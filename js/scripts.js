@@ -160,7 +160,6 @@ let date = todayDate.getDate();
 let day = days[todayDate.getDay()];
 let todayDateFormatted = `${date}. ${month} ${year}`;
 let dayStarted = false;
-let map;
 
 let barnehage = new Kindergarten("Barnehage"); //create a Kindergarten object instance
 const activeKindergarten = barnehage; //set this Kindergarten object instance as the active kindergarten
@@ -323,11 +322,4 @@ function getActionMinutes(takeUpTime) {
   } else {
     return `in ${timeReamaining} mins`;
   }
-}
-function initMap() {
-  console.log("inside initMap()");
-  let map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 58.85244, lng: 5.73521 },
-    zoom: 12
-  });
 }
