@@ -44,19 +44,6 @@
   background-color: #5d5b6a;
   color: beige;
 }
-/*************************************************************** Google maps */
-/* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-#map {
-  height: 300px;
-}
-/* Optional: Makes the sample page fill the window. */
-html,
-body {
-  height: 300px;
-  margin: 0;
-  padding: 0;
-}
 ul {
   padding: 0;
   list-style-type: none;
