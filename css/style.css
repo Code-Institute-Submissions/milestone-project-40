@@ -3,6 +3,10 @@
   margin: 0.8rem 0 0.5rem;
   border-radius: 5px;
 }
+.awake-total,
+.asleep-total {
+  font-size: 1.6rem;
+}
 /* https://css-tricks.com/centering-css-complete-guide/ */
 .more-info {
   position: relative;
