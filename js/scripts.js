@@ -184,11 +184,13 @@ setInterval(function () {
         kid.message = `${kid.name} needs to be taken up.`;
         kid.rowClass = "kid-takeup";
         kid.priority = 1;
-        if ("vibrate" in navigator) {
+        if ("vibrate" in navigator && !kid.notified) {
+          console.log("*****NOTIFICATION*****");
           navigator.vibrate(1000);
           //    window.navigator.vibrate(1000);
           //    alert("vibration test1");
           // vibration API supported
+          kid.notified = true;
         }
 
       }
