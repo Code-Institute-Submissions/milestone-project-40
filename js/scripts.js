@@ -195,7 +195,7 @@ setInterval(function () {
   if (dayStarted) {
     activeDepartment.refreshList();
   }
-}, 100000);
+}, 10000);
 setInterval(function () {
   console.log("=======API Timer==========");
   if (dayStarted) {
@@ -238,7 +238,7 @@ function getHeaderData() {
   let data = "";
   //  console.log("Testing for loop:");
   data += `
-  <div class="container-fluid bg-info">
+  <div class="container-fluid bg-info list-header">
     <div class="row justify-content-center">
       <div class="col-4 col-md-2">
         <div class="row text-center">
