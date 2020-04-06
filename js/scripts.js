@@ -83,7 +83,6 @@ Kid.prototype.putDown = function (event) {
   this.rowClass = "kid-waiting";
   this.priority = 3;
   activeDepartment.kidsAwake++;
-  //  console.log("***** put down mathew at: ", this.putDownTime);
   activeDepartment.refreshList();
 };
 //Kid prototype
@@ -96,8 +95,6 @@ Kid.prototype.asleepYet = function (event) {
   this.takeUpTime.setMinutes(this.takeUpTime.getMinutes() + this.maxSleepTime);
   this.action = `Take up ${this.name} ${getActionMinutes(this.takeUpTime)}`;
   this.message = `${this.name} is sleeping. You will be notified when it is time to wake ${this.name}`;
-  //  console.log("=======>> this.sleepStartTime: ", this.sleepStartTime);
-  //  console.log("=======>> this.putDownTime: ", this.putDownTime);
   this.awakeDuration = Math.floor(
     (this.sleepStartTime - this.putDownTime) / 60000
   );
@@ -105,7 +102,6 @@ Kid.prototype.asleepYet = function (event) {
   this.priority = 4;
   activeDepartment.kidsAwake--;
   activeDepartment.kidsAsleep++;
-  console.log("==>> awake duration", this.awakeDuration);
   activeDepartment.refreshList();
 };
 //Kid prototype
@@ -123,12 +119,10 @@ Kid.prototype.takeUp = function (event) {
   this.rowClass = "";
   this.priority = 5;
   this.visibility = "hidden";
-  console.log("==>> Slept for (mins): ", this.sleepDuration);
   activeDepartment.refreshList();
 };
 
 /*********************************************************************************START */
-console.log("Create date.");
 let months = [
   "Januar",
   "Februar",
@@ -204,13 +198,7 @@ setInterval(function () {
   if (dayStarted) {
     activeDepartment.refreshList();
   }
-}, 100000);
-setInterval(function () {
-  console.log("=======API Timer==========");
-  if (dayStarted) {
-    activeDepartment.refreshList();
-  }
-}, 30000);
+}, 10000);
 
 /***************************************************************** EVENT LISTENERS */
 $("#btnImportList").on("click", $.proxy(activeDepartment, "importList"));
@@ -223,8 +211,6 @@ $("#listContainer").on("click", ".actionIcon", activeDepartment, function (
     .parent()
     .parent();
   let index = node.index();
-  console.log(">>>>>>>>>>> index: ", index);
-  console.log(">>>>>>>>>>> node: ", node.html());
   let statusText = node.find(".status").text();
   if (statusText == "Empty pram") {
     console.log("<- putDown() ->");
@@ -245,7 +231,6 @@ $("#listContainer").on("click", ".actionIcon", activeDepartment, function (
 /********************************************************************** Functions */
 function getHeaderData() {
   let data = "";
-  //  console.log("Testing for loop:");
   data += `
   <div class="container-fluid bg-info list-header">
     <div class="row justify-content-center">
@@ -277,10 +262,7 @@ function getChildData() {
   //https://stackoverflow.com/questions/1027354/i-need-an-unordered-list-without-any-bullets
   data += `
   <ul class="list-unstyled">`;
-  //console.log("GETTING CHILD DATA:");
   for (const kid of activeDepartment.kids) {
-    //console.log("kid.message", kid.message);
-    //data will be concatenated to form a list of kids
     data += `
     <li ${kid.visibility}>
       <div class="container-fluid">
