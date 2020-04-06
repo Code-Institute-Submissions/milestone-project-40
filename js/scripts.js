@@ -52,7 +52,8 @@ function Kid(
   sleepDuration,
   rowClass,
   priority,
-  visibility
+  visibility,
+  notified
 ) {
   this.name = name;
   this.status = "Empty pram";
@@ -70,6 +71,7 @@ function Kid(
   this.rowClass = "kid-awake";
   this.priority = 2; //determines where a kid is placed on our list
   this.visibility = "";
+  this.notified = false;
 }
 Kid.prototype.putDown = function (event) {
   this.status = `${this.name} awake in pram`;
