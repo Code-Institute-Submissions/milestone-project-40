@@ -161,6 +161,11 @@ let day = days[todayDate.getDay()];
 let todayDateFormatted = `${date}. ${month} ${year}`;
 let dayStarted = false;
 
+fetch("https://api.openweathermap.org/data/2.5/weather?lat=58.85244&lon=5.73521&appid=71bb80548b219ca8d65f0acc15eb9551")
+  .then(response => response.json())
+  .then(data => console.log(data));
+
+
 let barnehage = new Kindergarten("Barnehage"); //create a Kindergarten object instance
 const activeKindergarten = barnehage; //set this Kindergarten object instance as the active kindergarten
 let avdeling = new Department("Avdeling", 0, 0); //create a Department object instance
