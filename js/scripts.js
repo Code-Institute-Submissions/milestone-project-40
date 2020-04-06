@@ -158,7 +158,7 @@ let year = todayDate.getFullYear();
 let month = months[todayDate.getMonth()];
 let date = todayDate.getDate();
 let day = days[todayDate.getDay()];
-let todayDateFormatted = `${day}</br>${date}. ${month} ${year}`;
+let todayDateFormatted = `${date}. ${month} ${year}`;
 let dayStarted = false;
 let map;
 
@@ -200,7 +200,7 @@ setInterval(function () {
   if (dayStarted) {
     activeDepartment.refreshList();
   }
-}, 10000);
+}, 100000);
 setInterval(function () {
   console.log("=======API Timer==========");
   if (dayStarted) {
@@ -247,7 +247,7 @@ function getHeaderData() {
     <div class="row justify-content-center">
       <div class="col-4 col-md-2">
         <div class="row text-center">
-          <div class="col-12">Date:</div>
+          <div class="col-12">${day}</div>
           <div class="col-12">${todayDateFormatted}</div>
         </div>
       </div>
