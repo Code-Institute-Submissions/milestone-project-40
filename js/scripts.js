@@ -155,9 +155,15 @@ let day = days[todayDate.getDay()];
 let todayDateFormatted = `${date}. ${month} ${year}`;
 let dayStarted = false;
 
-fetch("https://api.openweathermap.org/data/2.5/weather?lat=58.85244&lon=5.73521&appid=71bb80548b219ca8d65f0acc15eb9551")
-  .then(response => response.json())
-  .then(data => console.log(data));
+$.when(
+  $.getJSON("https://api.openweathermap.org/data/2.5/weather?lat=58.85244&lon=5.73521&appid=71bb80548b219ca8d65f0acc15eb9551")
+).then(
+  function (response) {
+    let data = response;
+    console.log(data);
+  }, function (errorResponse) {
+
+  });
 
 
 let barnehage = new Kindergarten("Barnehage"); //create a Kindergarten object instance
@@ -190,7 +196,6 @@ setInterval(function () {
           // vibration API supported
           kid.notified = true;
         }
-
       }
     }
   }
@@ -198,7 +203,7 @@ setInterval(function () {
   if (dayStarted) {
     activeDepartment.refreshList();
   }
-}, 10000);
+}, 100000);
 
 /***************************************************************** EVENT LISTENERS */
 $("#btnImportList").on("click", $.proxy(activeDepartment, "importList"));
@@ -234,22 +239,28 @@ function getHeaderData() {
   data += `
   <div class="container-fluid bg-info list-header">
     <div class="row justify-content-center">
-      <div class="col-4 col-md-2">
+      <div class="col-3 col-md-2">
         <div class="row text-center">
           <div class="col-12">${day}</div>
           <div class="col-12">${todayDateFormatted}</div>
         </div>
       </div>
-      <div class="col-4 col-md-2">
+      <div class="col-3 col-md-2">
         <div class="row text-center">
           <div class="col-12">Awake:</div>
           <div class="col-12 awake-total">${activeDepartment.kidsAwake}</div>
         </div>
       </div>
-      <div class="col-4 col-md-2">
+      <div class="col-3 col-md-2">
         <div class="row text-center">
           <div class="col-12">Asleep:</div>
           <div class="col-12 asleep-total">${activeDepartment.kidsAsleep}</div>
+        </div>
+      </div>
+      <div class="col-3 col-md-2">
+        <div class="row text-center">
+          <div class="col-12">Weather:</div>
+          <div class="col-12">${activeDepartment.kidsAsleep}</div>
         </div>
       </div>
     </div>
