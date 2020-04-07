@@ -154,15 +154,22 @@ let date = todayDate.getDate();
 let day = days[todayDate.getDay()];
 let todayDateFormatted = `${date}. ${month} ${year}`;
 let dayStarted = false;
+let temperature = "";
+let weatherIcon = "";
 
 $.when(
-  $.getJSON("https://api.openweathermap.org/data/2.5/weather?lat=58.85244&lon=5.73521&appid=71bb80548b219ca8d65f0acc15eb9551")
+  $.getJSON("https://api.openweathermap.org/data/2.5/weather?lat=58.85244&lon=5.73521&appid=71bb80548b219ca8d65f0acc15eb9551&units=metric")
 ).then(
   function (response) {
     let data = response;
-    console.log(data);
+    temperature = `${Math.round(data.main.temp)}°C`;
+    weatherIcon = data.weather[0].icon;
   }, function (errorResponse) {
-
+    if (errorResponse.status === 404) {
+      console.log("Website not available at the moment");
+    } else {
+      console.log(errorResponse);
+    }
   });
 
 
@@ -260,7 +267,7 @@ function getHeaderData() {
       <div class="col-3 col-md-2">
         <div class="row text-center">
           <div class="col-12">Weather:</div>
-          <div class="col-12">${activeDepartment.kidsAsleep}</div>
+          <div class="col-12"><img class="weather-widget__img" src="https://openweathermap.org/img/wn/${weatherIcon}@2x.png" alt="Weather Ganddal , NO" width="50" height="50">${temperature}</div>
         </div>
       </div>
     </div>
