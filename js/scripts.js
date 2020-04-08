@@ -23,7 +23,7 @@ Department.prototype.importList = function (event) {
 //Department prototype
 Department.prototype.refreshList = function (event) {
   //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-  console.log("SORTING ARRAY", activeDepartment);
+  // console.log("SORTING ARRAY", activeDepartment);
   //sort array by priority and then by takeUpTime
   activeDepartment.kids.sort(function (a, b) {
     if (a.priority == b.priority) {
@@ -60,14 +60,14 @@ function Kid(
   this.statusImg = "empty_pram.png";
   this.action = "Put baby in pram";
   this.actionImg = "put_down.png";
-  this.putDownTime = putDownTime; //time when kid was put in pram
+  this.putDownTime = ""; //time when kid was put in pram
   this.maxSleepTime = maxSleepTime; //maximum time kid should sleep for (given by parents)
   this.message = "Click to put baby in pram"; //message description
-  this.sleepStartTime = sleepStartTime; //time when kid fell asleep
-  this.sleepStopTime = sleepStopTime; //time when kid woke up
-  this.takeUpTime = takeUpTime; //time when kid was taken out of pram
-  this.awakeDuration = awakeDuration; //total time kid was awake (before sleeping)
-  this.sleepDuration = sleepDuration; //total time kid was sleeping
+  this.sleepStartTime = ""; //time when kid fell asleep
+  this.sleepStopTime = ""; //time when kid woke up
+  this.takeUpTime = ""; //time when kid was taken out of pram
+  this.awakeDuration = ""; //total time kid was awake (before sleeping)
+  this.sleepDuration = ""; //total time kid was sleeping
   this.rowClass = "kid-awake";
   this.priority = 2; //determines where a kid is placed on our list
   this.visibility = "";
@@ -171,7 +171,6 @@ $.when(
       console.log(errorResponse);
     }
   });
-
 
 let barnehage = new Kindergarten("Barnehage"); //create a Kindergarten object instance
 const activeKindergarten = barnehage; //set this Kindergarten object instance as the active kindergarten
