@@ -84,6 +84,7 @@ Kid.prototype.putDown = function (event) {
   this.priority = 3;
   activeDepartment.kidsAwake++;
   activeDepartment.refreshList();
+  return activeKindergarten;
 };
 //Kid prototype
 Kid.prototype.asleepYet = function (event) {
@@ -103,6 +104,7 @@ Kid.prototype.asleepYet = function (event) {
   activeDepartment.kidsAwake--;
   activeDepartment.kidsAsleep++;
   activeDepartment.refreshList();
+  return activeKindergarten;
 };
 //Kid prototype
 Kid.prototype.takeUp = function (event) {
@@ -120,6 +122,7 @@ Kid.prototype.takeUp = function (event) {
   this.priority = 5;
   this.visibility = "hidden";
   activeDepartment.refreshList();
+  return activeKindergarten;
 };
 
 /*********************************************************************************START */
@@ -195,21 +198,19 @@ setInterval(function () {
         kid.rowClass = "kid-takeup";
         kid.priority = 1;
         if ("vibrate" in navigator && !kid.notified) {
+          // vibration API supported
           console.log("*****NOTIFICATION*****");
           navigator.vibrate(1000);
-          //    window.navigator.vibrate(1000);
-          //    alert("vibration test1");
-          // vibration API supported
           kid.notified = true;
         }
       }
     }
   }
-  //  console.log("=======>> Refreshing from timer", barnehage);
+  //only refreshList if day has started (list has been imported)
   if (dayStarted) {
     activeDepartment.refreshList();
   }
-}, 100000);
+}, 10000);
 
 /***************************************************************** EVENT LISTENERS */
 $("#btnImportList").on("click", $.proxy(activeDepartment, "importList"));
