@@ -79,12 +79,12 @@ Kid.prototype.putDown = function (event) {
   this.action = `Click when ${this.name} is asleep`;
   this.actionImg = "asleep_yet.png";
   this.putDownTime = new Date();
-  this.message = `Click when ${this.name} is asleep.`;
+  this.message = `Click when ${this.name} is asleep`;
   this.rowClass = "kid-waiting";
   this.priority = 3;
   activeDepartment.kidsAwake++;
   activeDepartment.refreshList();
-  return activeKindergarten;
+  return activeDepartment;
 };
 //Kid prototype
 Kid.prototype.asleepYet = function (event) {
@@ -104,7 +104,7 @@ Kid.prototype.asleepYet = function (event) {
   activeDepartment.kidsAwake--;
   activeDepartment.kidsAsleep++;
   activeDepartment.refreshList();
-  return activeKindergarten;
+  return activeDepartment;
 };
 //Kid prototype
 Kid.prototype.takeUp = function (event) {
@@ -122,7 +122,7 @@ Kid.prototype.takeUp = function (event) {
   this.priority = 5;
   this.visibility = "hidden";
   activeDepartment.refreshList();
-  return activeKindergarten;
+  return activeDepartment;
 };
 
 /*********************************************************************************START */
