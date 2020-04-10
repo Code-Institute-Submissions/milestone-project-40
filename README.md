@@ -14,7 +14,9 @@
 
 > What are you aiming to achieve and for whom?
 
-I want my web app to make the job easier for people who work in kindergartens. I asked people who work with infants about their routines and collaborated to build a mock up to include the requested functionality and ease of use.
+I want my web app to make the job easier for people who work in kindergartens.
+
+I asked people who work with infants about their routines and collaborated to build a mock up to include the requested functionality and ease of use.
 
 ### Scope Plane
 
@@ -29,21 +31,26 @@ I want my web app to make the job easier for people who work in kindergartens. I
 
 > How is the information structured and how is it logically grouped.
 
-The web app will contain two pages:
+The web app will contain a single page.
 
-- Home (the list of infants)
-- About (instructions, settings)
-- Contact Us (contact form)
+The two main objects will be the _Kindergarten_ object and the _Kid_ object.
+
+The Kindergarten object contains:
+
+- kids array (an array of Kid objects)
+
+The Kid object contains:
+
+-
 
 ### Skeleton Plane
 
 > How will our information be represented, and how will the user
 > navigate to the information and features?
 
-The information should be represented in such a way that the user can immediately understand the website structure and know where to go.
-The Home page (the web app itself), will be ana rray of objects. Each object will represent an infant.
+The information is represented as a list of kids. Each kid has properties and buttons. The buttons provide a quicka nd easy way to update kid data and change the overall status of the list.
 
-Infant data:
+Kid data:
 
 - Name
 - Age
@@ -53,7 +60,13 @@ Infant data:
 Infant methods:
 
 - Put infant down
+  - Start timer (how long it takes to fall asleep)
+  - Toggle action icon
+  - Set awake icon
 - Infant falls asleep
+  - Start timer (how long infant sleeps)
+  - Toggle action icon
+  - Set sleeping icon
 - Infant awakens (by himself/herself)
 - Infant awakens (by staff, because maximum sleeping time is reached)
 - Infant is taken up
@@ -148,7 +161,8 @@ https://github.com/paulldev/milestone-project-1
 
 ### Media
 
-- The speech bubble logo was made using **Gimp**. The outline of the speech bubble was taken from an image of unknown origin, and the center area was made by me in Gimp.
+Emoji baby awake:
+https://www.needpix.com/photo/1276460/emoticon-baby-emojis-child-bebe
 
 ## Acknowledgements
 
