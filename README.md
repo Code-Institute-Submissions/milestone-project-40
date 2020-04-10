@@ -20,7 +20,11 @@ I want my web app to make the job easier for people who work in kindergartens.
 
 I asked people who work with infants about their routines and collaborated to build a mock up to include the requested functionality and ease of use.
 
-My goal is to create a web app that creates and uses objects and their associated methods. I also want to make it scalable so that a kindergarten could have multiple departments with multiple kids.
+My goal is to create a web app that creates and uses objects and their associated methods. I also want to make it scalable so that a kindergarten can have multiple departments with multiple kids.
+
+Since older people will mostly be using the app, there should be minimal inforation displayed for each child on the list. The action button will be formatted to make it clear what action the user needs to take. The text information under each icon, the message area, the icons, the list order, and background colours in each list item should clearly describe the state of each child and what actions can be taken with each child.
+
+Displaying the weather information allows staff to decide whether the children should sleep inside or outside (based on temperature).
 
 ### Scope Plane
 
@@ -29,6 +33,7 @@ My goal is to create a web app that creates and uses objects and their associate
 
 - **Portability:** In Norway, infants mostly sleep outside. The web app needs to be suitable for smaller devices such as mobiles and tablets.
 - **Dynamic:** The list of children should be dynamic. Infants that are next to be taken up should appear at the top of the list. Infants that have finished sleeping should disappear from the list.
+  All information in the app is dynamic. The day and date is current, the weather information is current, the information for each child that is displayed on screen matches the data stored in the data structure in main memory.
 
 ### Structure Plane
 
@@ -36,10 +41,10 @@ My goal is to create a web app that creates and uses objects and their associate
 
 The web app will contain a single page.
 
-The main three objects used will be the _Kindergarten_ object, the _Department_ object, and the _Kid_ object.
-The _Kindergarten_ object contains a departments array of _Department_ objects.
-Each _Department_ object contain a kids array of _Kid_ objects.
-This structure is kept in main memory and changes state as the user interacts with the app.
+The main three objects used will be the **Kindergarten** object, the **Department** object, and the **Kid** object.
+The **Kindergarten** object contains a departments array of **Department** objects.
+Each **Department** object contain a kids array of **Kid** objects.
+This data structure is kept in main memory and changes state as the user interacts with the app.
 
 ### Skeleton Plane
 
@@ -48,26 +53,75 @@ This structure is kept in main memory and changes state as the user interacts wi
 
 The information is represented as a list of kids. Each kid has properties and buttons. The buttons provide a quick and easy way to update kid data and change the overall status of the list.
 
-Kid data:
+**Kindergarten object - Properties**
 
-- Name
-- Age
-- Maximum length of time the infant can sleep (set by parents)
--
+- name: the name of the kindergarten.
+- departments: an array of Department objects.
 
-Infant methods:
+**Department object - Properties**
 
-- Put infant down
-  - Start timer (how long it takes to fall asleep)
-  - Toggle action icon
-  - Set awake icon
-- Infant falls asleep
-  - Start timer (how long infant sleeps)
-  - Toggle action icon
-  - Set sleeping icon
-- Infant awakens (by himself/herself)
-- Infant awakens (by staff, because maximum sleeping time is reached)
-- Infant is taken up
+- name: the name of the department.
+- kidsAwake: the total number of kids that are awake in their pram, waiting to fall asleep.
+- kidsAsleep: the total number of kids that are asleep in their pram.
+- dayStarted: a boolean value (default set to false) used to keep track of whether the list of kids has been imported yet or not.
+- kids: an array of Kid objects.
+
+**Department object - Methods**
+
+- importList: called when user clicks the 'import list' button.
+- refreshList: displays and sorts list of kids by priority, and then by the time they should be taken up at. This will keep kids with a high priority at the top of the list (eg. kids that have finished sleeping and need to be taken up). I will keep kids with a low priority at the bottom of the list (eg. kids that are sleeping and don't need to be taken up yet). This will save the user having to scroll through the list because all actionable items will be at the top of the list.
+
+**Kid object - Properties**
+
+- name: the name of the kid.
+- maxSleepTime: the maximum time a kid should sleep for (given by parents of the kid).
+- status: the text that appears under the status icon. It describes the current status of the kid (awake in pram, sleeping, ready to be taken up, etc).
+- statusImg: the icon that visually describes the current status of the kid (awake in pram, sleeping, ready to be taken up, etc).
+- action: the text that appears under the action icon. It describes what the button will do for the current kid (put down to sleep, click when asleep, take up, etc).
+- actionImg: the icon that visually describes what clicking the button will do (put down to sleep, click when asleep, take up, etc).
+- message: a short sentence which gives information about what the user might need to do.
+- putDownTime: the time the kid was put into their pram (not asleep yet).
+- sleepStartTime: the time the kid started sleeping at.
+- sleepStopTime: the time the kid stopped sleeping at. This can be the same as the time the kid _should_ wake up at, or it can be an earlier time if the kid wakes up earlier than the time the kid _should_ sleep until.
+- takeUpTime: the time the kid should be taken up at. This is set by the kid's parents so that they don't sleep too long.
+- awakeDuration: how log it took the kid to fall asleep.
+- sleepDuration: how long the kid was sleeping for.
+- rowClass: a class which helps to visually show the user the status of each child (eg. a red background is an urgent indicator that the child needs to be taken up). Classes are: kid-awake, kid-waiting, kid-asleep, kid-takeup.
+- priority: each kid has a priority number depending on their current status. This is first of two properties used to sort the list of kids.
+- visibility: used to show or hide a kid from the list. Once a kid is taken up, the visibility will be set to 'hidden'.
+- notified: a boolean value used to call the vibration API which will notify the user only when a child needs to be taken up. The user will be notified once, then the boolean value will be set to true. This is to prevent multiple notifications.
+
+**Kid object - Methods**
+
+- putDown
+
+  - sets kid status to 'kidname awake in pram'.
+  - sets statusImg to 'emoji_baby_awake_in_pram.png'.
+  - sets action to 'Click when kidname is asleep'.
+  - sets actionImg to 'asleep_yet.png'.
+  - sets putDownTime to the current time.
+  - sets message to 'Click when kidname is asleep'.
+  - sets rowClass to the 'kid-waiting' class.
+  - sets priority to 3.
+  - increments the kidsAwake value by one.
+  - calls refreshList() to update and sort the list of kids.
+  - returns the activeDepartment which can be used in Jasmine testing.
+
+- asleepYet
+  - sets status to 'kidname is asleep'.
+  - sets statusImg to 'emoji_baby_asleep.png'.
+  - sets actionImg to 'wait.png'.
+  - sets sleepStartTime to current time.
+  - sets takeUpTime to the time the kid should be taken up at. It is calculated by: takeUpTime + maxSleepTime.
+  - sets action to 'Take up kidname in (time remaining) mins. The getActionMinutes function is called to determine the exact time. The app has a timer (setInterval) that will update this value every 10 seconds.
+  - sets message to 'kidname is sleeping. You will be notified when it is time to wake kidname'.
+  - sets awakeDuration to the amount of time the kid took to fall asleep. It is calculated by: sleepStartTime - putDownTime.
+  - sets rowClass to 'kid-asleep' class.
+  - sets priority to 4.
+  - decrements kidsAwake value by one.
+  - increments the kidsAsleep value by one.
+  - calls refreshList() to update and sort the list of kids.
+  - returns the activeDepartment which can be used in Jasmine testing.
 
 ### Surface Plane
 
