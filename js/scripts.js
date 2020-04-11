@@ -9,6 +9,7 @@ function Department(name, kidsAwake, kidsAsleep) {
   this.name = name; //name of department
   this.kidsAwake = kidsAwake;
   this.kidsAsleep = kidsAsleep;
+  this.dayStarted = false;
   this.kids = []; //array of Kid objects
 }
 //Department prototype
