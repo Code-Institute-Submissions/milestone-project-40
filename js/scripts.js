@@ -339,23 +339,25 @@ function getChildData() {
             <div class="collapse multi-collapse" id="multiCollapse-${kid.name}">
               <div class="card card-body">
                 <div class="row">
-                  <div class="col-6">
-                    Started sleeping at
+                  <div class="col-6 text-right">
+                    Started sleeping at:<br>
+                    Due to wake up at:
                   </div>
-                  <div class="col-6">
-                    time
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 text-center message">${kid.message}</div>
-        </div>
-      </div>
-    </li>`;
+                  <div class="col-6 text-left">
+                    ${stringToTime(kid.sleepStartTime)}<br>
+                    ${stringToTime(kid.takeUpTime)}
+                  </div >
+                </div >
+              </div >
+            </div >
+          </div >
+        </div >
+    <div class="col-12 text-center message">${kid.message}</div>
+        </div >
+      </div >
+    </li > `;
   }
-  data += `</ul >`;
+  data += `</ul > `;
   $("#listContainer").html(data);
 }
 function getActionMinutes(takeUpTime) {
@@ -364,5 +366,20 @@ function getActionMinutes(takeUpTime) {
     return "now!";
   } else {
     return `in ${timeReamaining} mins`;
+  }
+}
+//convert string time into h:m format
+function stringToTime(sleepStartTime) {
+  console.log("millisecs: ", sleepStartTime);
+  let date = new Date(sleepStartTime);
+  let hours = date.getHours();
+  let mins = date.getMinutes();
+  if (mins < 10) {
+    mins = `0${mins}`;
+  }
+  if (sleepStartTime == "") {
+    return '(Not asleep yet)';
+  } else {
+    return `${hours}:${mins}`;
   }
 }
