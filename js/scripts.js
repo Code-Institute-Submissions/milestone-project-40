@@ -73,6 +73,7 @@ function Kid(
   this.visibility = "";
   this.notified = false;
 }
+//Kid prototype
 Kid.prototype.putDown = function (event) {
   this.status = `${this.name} awake in pram`;
   this.statusImg = "emoji_baby_awake_in_pram.png";
@@ -125,6 +126,7 @@ Kid.prototype.takeUp = function (event) {
   return activeDepartment;
 };
 /*********************************************************************************START */
+//Norwegian month names
 let months = [
   "Januar",
   "Februar",
@@ -139,6 +141,7 @@ let months = [
   "November",
   "Desember"
 ];
+//Norwegian day names
 let days = [
   "Søndag",
   "Mandag",
@@ -155,24 +158,23 @@ let month = months[todayDate.getMonth()];
 let date = todayDate.getDate();
 let day = days[todayDate.getDay()];
 let todayDateFormatted = `${date}. ${month} ${year}`;
-//let dayStarted = false;
 let temperature = "";
 let weatherIcon = "";
 
+//openweather API
 $.when(
   $.getJSON("https://api.openweathermap.org/data/2.5/weather?lat=58.85244&lon=5.73521&appid=71bb80548b219ca8d65f0acc15eb9551&units=metric")
-).then(
-  function (response) {
-    let data = response;
-    temperature = `${Math.round(data.main.temp)}°C`;
-    weatherIcon = data.weather[0].icon;
-  }, function (errorResponse) {
-    if (errorResponse.status === 404) {
-      console.log("Website not available at the moment");
-    } else {
-      console.log(errorResponse);
-    }
-  });
+).then(function (response) {
+  let data = response;
+  temperature = `${Math.round(data.main.temp)}°C`;
+  weatherIcon = data.weather[0].icon;
+}, function (errorResponse) {
+  if (errorResponse.status === 404) {
+    console.log("Website not available at the moment");
+  } else {
+    console.log(errorResponse);
+  }
+});
 
 let barnehage = new Kindergarten("Barnehage"); //create a Kindergarten object instance
 const activeKindergarten = barnehage; //set this Kindergarten object instance as the active kindergarten
@@ -187,7 +189,6 @@ setInterval(function () {
     let sleeping = Date.now() - kid.sleepStartTime; //length of time sleeping (milliseconds)
     if (kid.status == `${kid.name} is asleep`) {
       kid.action = `Take up ${kid.name} ${getActionMinutes(kid.takeUpTime)}`;
-
       if (sleeping > kid.maxSleepTime * 60000) {
         //convert maxSleepTime from minutes to milliseconds
         kid.action = `Take up ${kid.name} ${getActionMinutes(kid.takeUpTime)}`;
@@ -212,11 +213,14 @@ setInterval(function () {
 }, 60000);
 
 /***************************************************************** EVENT LISTENERS */
+//https://api.jquery.com/jQuery.proxy/
+//Couldn't call 'importList'. Had to use the proxy() method to change the context.
 $("#btnImportList").on("click", $.proxy(activeDepartment, "importList"));
 
-$("#listContainer").on("click", ".actionIcon", activeDepartment, function (
-  event
-) {
+//https://api.jquery.com/on/
+//Had to use event delegation because the list wasn't created yet.
+//The eventual click event 'bubbles' up to #listContainer
+$("#listContainer").on("click", ".actionIcon", activeDepartment, function (event) {
   let node = $(this)
     .parent()
     .parent()
