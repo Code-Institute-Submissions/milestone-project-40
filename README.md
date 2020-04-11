@@ -14,6 +14,8 @@
 
 **Barnevakt** is a web app designed for people who work with kids (ages 1-3) in kindergarten. Most kindergartens in Norway use a pen and a printed page to keep track of each kid's data. This web app will automate most tasks and make other tasks trivial. This will allow staff to work more efficiently and with less errors (eg. kid sleeping too long).
 
+All code produced is my own. Any sources I used as a reference are included as a link in my code. All solutions are based on course material, official documentation, and lots of trial and error.
+
 ## UX
 
 ### Strategy Plane
