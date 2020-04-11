@@ -171,29 +171,18 @@ The navigation is located at the top of each page and uses Bootstrap's navbar. I
 
 ## Technologies used
 
-| Name | Type | Site url | Why use it? |
-
-| :------ |:------- | :---- |
-
-| HTML5 | Language | https://www.w3.org/TR/html52/ | To structure the website |
-
-| CSS3 | Language | https://www.w3.org/Style/CSS/Overview.en.html | To style and layout the website |
-
-| Javascript | Language | https://developer.mozilla.org/en-US/docs/Web/JavaScript | To create responsive, interactive elements for web pages |
-
-| jQuery | Library | https://jquery.com/ | To make DOM traversal, manipulation, event handling, animation, and Ajax much simpler |
-
-| Bootstrap | Framework | https://getbootstrap.com/ | To make layout easier |
-
-| Font awesome | Toolkit | https://fontawesome.com/ | To use vector icons and social logos |
-
-| Croppola | Tool | https://croppola.com/ | To crop my images |
-
-| Reduce Images | Tool | https://www.reduceimages.com/ | To reduce the size of my images |
-
-| Real favicon generator | Tool | https://realfavicongenerator.net | To generate favicons from an image |
-
-| Gimp | Software | https://www.gimp.org/ | To create custom icons |
+| Name                   | Type      | Site url                                                | Why use it?                                                                           |
+| :--------------------- | :-------- | :------------------------------------------------------ | ------------------------------------------------------------------------------------- |
+| HTML5                  | Language  | https://www.w3.org/TR/html52/                           | To structure the website                                                              |
+| CSS3                   | Language  | https://www.w3.org/Style/CSS/Overview.en.html           | To style and layout the website                                                       |
+| Javascript             | Language  | https://developer.mozilla.org/en-US/docs/Web/JavaScript | To create responsive, interactive elements for web pages                              |
+| jQuery                 | Library   | https://jquery.com/                                     | To make DOM traversal, manipulation, event handling, animation, and Ajax much simpler |
+| Bootstrap              | Framework | https://getbootstrap.com/                               | To make layout easier                                                                 |
+| Font awesome           | Toolkit   | https://fontawesome.com/                                | To use vector icons and social logos                                                  |
+| Croppola               | Tool      | https://croppola.com/                                   | To crop my images                                                                     |
+| Reduce Images          | Tool      | https://www.reduceimages.com/                           | To reduce the size of my images                                                       |
+| Real favicon generator | Tool      | https://realfavicongenerator.net                        | To generate favicons from an image                                                    |
+| Gimp                   | Software  | https://www.gimp.org/                                   | To create custom icons                                                                |
 
 ## Testing
 
