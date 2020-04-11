@@ -1,4 +1,7 @@
 /****************************************** intro page */
+body {
+  background-color: #e0e0e0;
+}
 #btnImportList {
   margin-top: 1.5rem;
 }
