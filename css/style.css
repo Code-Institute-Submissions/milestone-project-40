@@ -62,3 +62,12 @@ ul {
   width: 100%;
   margin-bottom: 0.5rem;
 }
+.more-info {
+  cursor: pointer;
+}
+/* override defaut <a> styling */
+a,
+a:hover {
+  color: #212529;
+  text-decoration: none;
+}
