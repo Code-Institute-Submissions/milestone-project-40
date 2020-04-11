@@ -6,9 +6,9 @@
 
 ## Introduction
 
-NOTE: Due to child data protection laws, no real child names are used in this project, and child images are represented by a generic icon, not a picture.
+NOTE: Due to kid data protection laws, no real kid names are used in this project, and kid images are represented by a generic icon, not a picture.
 
-**Barnevakt** is a web app designed for people who work with infants (ages 1-3) in kindergarten. Most kindergartens in Norway use a pen and a printed page to keep track of each infant's data. This web app will automate most tasks and make other tasks trivial. This will allow staff to work more efficiently and with less errors (eg. child sleeping too long).
+**Barnevakt** is a web app designed for people who work with infants (ages 1-3) in kindergarten. Most kindergartens in Norway use a pen and a printed page to keep track of each infant's data. This web app will automate most tasks and make other tasks trivial. This will allow staff to work more efficiently and with less errors (eg. kid sleeping too long).
 
 ## UX
 
@@ -22,9 +22,9 @@ I asked people who work with infants about their routines and collaborated to bu
 
 My goal is to create a web app that creates and uses objects and their associated methods. I also want to make it scalable so that a kindergarten can have multiple departments with multiple kids.
 
-Since older people will mostly be using the app, there should be minimal inforation displayed for each child on the list. The action button will be formatted to make it clear what action the user needs to take. The text information under each icon, the message area, the icons, the list order, and background colours in each list item should clearly describe the state of each child and what actions can be taken with each child.
+Since older people will mostly be using the app, there should be minimal inforation displayed for each kid on the list. The action button will be formatted to make it clear what action the user needs to take. The text information under each icon, the message area, the icons, the list order, and background colours in each list item should clearly describe the state of each kid and what actions can be taken with each kid.
 
-Displaying the weather information allows staff to decide whether the children should sleep inside or outside (based on temperature).
+Displaying the weather information allows staff to decide whether the kids should sleep inside or outside (based on temperature).
 
 ### Scope Plane
 
@@ -32,8 +32,8 @@ Displaying the weather information allows staff to decide whether the children s
 > want to include in your design?
 
 - **Portability:** In Norway, infants mostly sleep outside. The web app needs to be suitable for smaller devices such as mobiles and tablets.
-- **Dynamic:** The list of children should be dynamic. Infants that are next to be taken up should appear at the top of the list. Infants that have finished sleeping should disappear from the list.
-  All information in the app is dynamic. The day and date is current, the weather information is current, the information for each child that is displayed on screen matches the data stored in the data structure in main memory.
+- **Dynamic:** The list of kids should be dynamic. Infants that are next to be taken up should appear at the top of the list. Infants that have finished sleeping should disappear from the list.
+  All information in the app is dynamic. The day and date is current, the weather information is current, the information for each kid that is displayed on screen matches the data stored in the data structure in main memory.
 
 ### Structure Plane
 
@@ -86,10 +86,10 @@ The information is represented as a list of kids. Each kid has properties and bu
 - takeUpTime: the time the kid should be taken up at. This is set by the kid's parents so that they don't sleep too long.
 - awakeDuration: how log it took the kid to fall asleep.
 - sleepDuration: how long the kid was sleeping for.
-- rowClass: a class which helps to visually show the user the status of each child (eg. a red background is an urgent indicator that the child needs to be taken up). Classes are: kid-awake, kid-waiting, kid-asleep, kid-takeup.
+- rowClass: a class which helps to visually show the user the status of each kid (eg. a red background is an urgent indicator that the kid needs to be taken up). Classes are: kid-awake, kid-waiting, kid-asleep, kid-takeup.
 - priority: each kid has a priority number depending on their current status. This is first of two properties used to sort the list of kids.
 - visibility: used to show or hide a kid from the list. Once a kid is taken up, the visibility will be set to 'hidden'.
-- notified: a boolean value used to call the vibration API which will notify the user only when a child needs to be taken up. The user will be notified once, then the boolean value will be set to true. This is to prevent multiple notifications.
+- notified: a boolean value used to call the vibration API which will notify the user only when a kid needs to be taken up. The user will be notified once, then the boolean value will be set to true. This is to prevent multiple notifications.
 
 **Kid object - Methods**
 
@@ -145,9 +145,11 @@ The information is represented as a list of kids. Each kid has properties and bu
 
 The finished product will be a clean, enjoyable, responsive, easy to use web app.
 
-It will have a main header which will contain the current date, the total number of kids that are awake, the total number of kids that are asleep. It will also contain the current weather temperature (from openweather's API) so staff can decide whether to have the children sleeping outside or inside.
+It will have a main header which will contain the current date, the total number of kids that are awake, the total number of kids that are asleep. It will also contain the current weather temperature (from openweather's API) so staff can decide whether to have the kids sleeping outside or inside.
 
-The list of kids will have a child section, which will have an icon to represent the child.
+The list of kids will have a kid section, which will have an icon to represent the kid, with the kid's name underneath.
+There will be an action section beside the kid section. This area will be a button that will perform several different actions, depending on the state of the kid (awake, sleeping, etc.). The icon and text will be dynamic and will change to reflect the current state of the kid.
+There will be a status section beside the action section. This area will be to display information only, it will not be clickable. The icon and text will be dynamic and will change to reflect the current state of the kid.
 
 ## Features
 
@@ -162,7 +164,10 @@ The navigation is located at the top of each page and uses Bootstrap's navbar. I
 
 ## Future features to implement
 
--
+- connect app to a backend database to save the app's state. This persistent data could then be loaded, edited, saved, etc.
+  Having a server backend would also allow us to use an email API that could send out emails to staff and parents.
+- create a dropdown menu with several departments. By selecting a particular department, you would be setting that as the activeDepartment.
+- Create a Settings tab where we could change notification settings (which parents want to receive emails and what information they want to receive), kid settings (how long they should sleeep, etc.), kindergarten settings (change the name, add/remove/rename departments, add/remove/rename kids, etc.).
 
 ## Technologies used
 
@@ -174,6 +179,10 @@ The navigation is located at the top of each page and uses Bootstrap's navbar. I
 
 | CSS3 | Language | https://www.w3.org/Style/CSS/Overview.en.html | To style and layout the website |
 
+| Javascript | Language | https://developer.mozilla.org/en-US/docs/Web/JavaScript | To create responsive, interactive elements for web pages |
+
+| jQuery | Library | https://jquery.com/ | To make DOM traversal, manipulation, event handling, animation, and Ajax much simpler |
+
 | Bootstrap | Framework | https://getbootstrap.com/ | To make layout easier |
 
 | Font awesome | Toolkit | https://fontawesome.com/ | To use vector icons and social logos |
@@ -183,6 +192,8 @@ The navigation is located at the top of each page and uses Bootstrap's navbar. I
 | Reduce Images | Tool | https://www.reduceimages.com/ | To reduce the size of my images |
 
 | Real favicon generator | Tool | https://realfavicongenerator.net | To generate favicons from an image |
+
+| Gimp | Software | https://www.gimp.org/ | To create custom icons |
 
 ## Testing
 
