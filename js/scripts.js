@@ -241,6 +241,20 @@ $("#listContainer").on("click", ".actionIcon", activeDepartment, function (
   }
 }); //jQuery event listener
 
+$("#listContainer").on("click", ".more-info", activeDepartment, function (
+  event
+) {
+  console.log(">>>>> this", this);
+  let node = $(this)
+    .parent()
+    .parent()
+    .parent();
+  let index = node.index();
+  console.log("index=", index);
+
+  activeDepartment.kids[index].moreInfo();
+}); //jQuery event listener
+
 /********************************************************************** Functions */
 function getHeaderData() {
   let data = "";
