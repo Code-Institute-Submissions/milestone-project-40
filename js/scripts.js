@@ -124,12 +124,6 @@ Kid.prototype.takeUp = function (event) {
   activeDepartment.refreshList();
   return activeDepartment;
 };
-//Kid prototype
-Kid.prototype.moreInfo = function (event) {
-  //activeDepartment.refreshList();
-  return activeDepartment;
-};
-
 /*********************************************************************************START */
 let months = [
   "Januar",
@@ -215,7 +209,7 @@ setInterval(function () {
   if (activeDepartment.dayStarted) {
     activeDepartment.refreshList();
   }
-}, 100000);
+}, 60000);
 
 /***************************************************************** EVENT LISTENERS */
 $("#btnImportList").on("click", $.proxy(activeDepartment, "importList"));
@@ -241,18 +235,6 @@ $("#listContainer").on("click", ".actionIcon", activeDepartment, function (
     });
   }
 }); //jQuery event listener
-
-$("#listContainer").on("click", ".more-info", activeDepartment, function (
-  event
-) {
-  let node = $(this)
-    .parent()
-    .parent()
-    .parent();
-  let index = node.index();
-  activeDepartment.kids[index].moreInfo();
-}); //jQuery event listener
-
 /********************************************************************** Functions */
 function getHeaderData() {
   let data = "";
