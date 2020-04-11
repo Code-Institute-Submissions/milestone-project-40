@@ -162,6 +162,8 @@ let temperature = "";
 let weatherIcon = "";
 
 //openweather API
+//https://openweathermap.org/current
+//https://api.jquery.com/jQuery.when/
 $.when(
   $.getJSON("https://api.openweathermap.org/data/2.5/weather?lat=58.85244&lon=5.73521&appid=71bb80548b219ca8d65f0acc15eb9551&units=metric")
 ).then(function (response) {
