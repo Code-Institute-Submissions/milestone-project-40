@@ -8,11 +8,10 @@ activeDepartment.kids.push(new Kid("John", 1));
 for (const kid of activeDepartment.kids) {
   names.push(kid.name);
 };
-
+console.log("**** STARTING PUTDOWN SECTION ****");
 //************************************************************** putDown ******************** */
 describe(`Kid object > putDown() method:`, function () {
   beforeEach(function () {
-    console.log("beforeEach():");
     if (activeDepartment.kids.length == 0) { //if there are no kids, you must push them into kids array
       //   console.log("--need to import kids before starting");
       activeDepartment.kids.push(new Kid("Tina", 4));
@@ -26,12 +25,11 @@ describe(`Kid object > putDown() method:`, function () {
     }
   });
   afterEach(function () {
-    console.log("afterEach():");
     //https://stackoverflow.com/questions/1232040/how-do-i-empty-an-array-in-javascript
     activeDepartment.kids.length = 0; //empty array
   });
   //*****************************************************************************************************function */
-  function test(originalNameIndex) {
+  function testPutDown(originalNameIndex) {
     it(`${names[originalNameIndex]}'s properties should equal expected result`, function () {
       //arrange
       //https://www.codementor.io/@junedlanja/copy-javascript-object-right-way-ohppc777d
@@ -66,12 +64,11 @@ describe(`Kid object > putDown() method:`, function () {
       }
       expect(passed).toBe(true);
     });
-    //afterEach() called here
     console.log("afterEach() being called?");
   }
 
   for (var originalNameIndex = 0; originalNameIndex < names.length; originalNameIndex++) {
-    test(originalNameIndex);
+    testPutDown(originalNameIndex);
   }
 });
 //test if order is correct
