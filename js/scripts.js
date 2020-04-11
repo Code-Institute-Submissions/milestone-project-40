@@ -13,7 +13,7 @@ function Department(name, kidsAwake, kidsAsleep) {
 }
 //Department prototype
 Department.prototype.importList = function (event) {
-  dayStarted = true;
+  this.dayStarted = true;
   this.kids.push(new Kid("Tina", 4));
   this.kids.push(new Kid("Jane", 3));
   this.kids.push(new Kid("Mathew", 2));
@@ -156,7 +156,7 @@ let month = months[todayDate.getMonth()];
 let date = todayDate.getDate();
 let day = days[todayDate.getDay()];
 let todayDateFormatted = `${date}. ${month} ${year}`;
-let dayStarted = false;
+//let dayStarted = false;
 let temperature = "";
 let weatherIcon = "";
 
@@ -207,7 +207,7 @@ setInterval(function () {
     }
   }
   //only refreshList if day has started (list has been imported)
-  if (dayStarted) {
+  if (activeDepartment.dayStarted) {
     activeDepartment.refreshList();
   }
 }, 10000);
