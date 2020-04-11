@@ -125,6 +125,11 @@ Kid.prototype.takeUp = function (event) {
   activeDepartment.refreshList();
   return activeDepartment;
 };
+//Kid prototype
+Kid.prototype.moreInfo = function (event) {
+  activeDepartment.refreshList();
+  return activeDepartment;
+};
 
 /*********************************************************************************START */
 let months = [
