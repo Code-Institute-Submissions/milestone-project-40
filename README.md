@@ -1,4 +1,4 @@
-# Barnevakt ![Barnevakt](favicon.png)
+# Barnevakt ![Barnevakt](images/favicon-32x32.png)
 
 ### Live website: https://paulldev.github.io/milestone-project-2/
 
