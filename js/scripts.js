@@ -24,7 +24,6 @@ Department.prototype.importList = function (event) {
 //Department prototype
 Department.prototype.refreshList = function (event) {
   //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-  // console.log("SORTING ARRAY", activeDepartment);
   //sort array by priority and then by takeUpTime
   activeDepartment.kids.sort(function (a, b) {
     if (a.priority == b.priority) {
@@ -189,7 +188,7 @@ const activeDepartment = activeKindergarten.departments[0]; //set this Departmen
 
 //https://www.w3schools.com/jsref/met_win_setinterval.asp
 setInterval(function () {
-  console.log("=========Timer============");
+  console.log("====== 1 min timer =========");
   for (const kid of activeDepartment.kids) {
     let sleeping = Date.now() - kid.sleepStartTime; //length of time sleeping (milliseconds)
     if (kid.status == `${kid.name} is asleep`) {
@@ -205,7 +204,7 @@ setInterval(function () {
         kid.priority = 1;
         if ("vibrate" in navigator && !kid.notified) {
           // vibration API supported
-          console.log("*****NOTIFICATION*****");
+          console.log("** notification called **");
           navigator.vibrate(1000);
           kid.notified = true;
         }
@@ -231,15 +230,12 @@ $("#listContainer").on("click", ".actionIcon", activeDepartment, function (
   let index = node.index();
   let statusText = node.find(".status").text();
   if (statusText == "Empty pram") {
-    console.log("<- putDown() ->");
     activeDepartment.kids[index].putDown();
   } else if (
     statusText == `${activeDepartment.kids[index].name} awake in pram`
   ) {
-    console.log("<- asleepYet() ->");
     activeDepartment.kids[index].asleepYet();
   } else if (statusText == `${activeDepartment.kids[index].name} is asleep`) {
-    console.log("<- takeUp() ->");
     $(`#listContainer ul li:nth-child(${index + 1})`).slideUp(function () {
       activeDepartment.kids[index].takeUp();
     });
@@ -249,14 +245,11 @@ $("#listContainer").on("click", ".actionIcon", activeDepartment, function (
 $("#listContainer").on("click", ".more-info", activeDepartment, function (
   event
 ) {
-  console.log(">>>>> this", this);
   let node = $(this)
     .parent()
     .parent()
     .parent();
   let index = node.index();
-  console.log("index=", index);
-
   activeDepartment.kids[index].moreInfo();
 }); //jQuery event listener
 
@@ -297,11 +290,21 @@ function getHeaderData() {
 }
 function getChildData() {
   let data = "";
+  let totalKids = activeDepartment.kids.length;
+
+  console.log("total kids: ", totalKids);
   //https://stackoverflow.com/questions/1027354/i-need-an-unordered-list-without-any-bullets
   data += `
   <ul class="list-unstyled">`;
   for (const kid of activeDepartment.kids) {
-    data += `
+    if (kid.visibility == "hidden") {
+      totalKids--;
+      console.log("totalKids: ", totalKids);
+    }
+    if (totalKids == 0) {
+      data = "<p>No kids are left</p>";
+    } else {
+      data += `
     <li ${kid.visibility}>
       <div class="container-fluid">
         <div class="row justify-content-center kid-row ${kid.rowClass}">
@@ -352,10 +355,11 @@ function getChildData() {
             </div >
           </div >
         </div >
-    <div class="col-12 text-center message">${kid.message}</div>
+        <div class="col-12 text-center message">${kid.message}</div>
         </div >
       </div >
     </li > `;
+    }
   }
   data += `</ul > `;
   $("#listContainer").html(data);
@@ -370,7 +374,6 @@ function getActionMinutes(takeUpTime) {
 }
 //convert string time into h:m format
 function stringToTime(sleepStartTime) {
-  console.log("millisecs: ", sleepStartTime);
   let date = new Date(sleepStartTime);
   let hours = date.getHours();
   let mins = date.getMinutes();
