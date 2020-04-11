@@ -108,6 +108,7 @@ The information is represented as a list of kids. Each kid has properties and bu
   - returns the activeDepartment which can be used in Jasmine testing.
 
 - asleepYet
+
   - sets status to 'kidname is asleep'.
   - sets statusImg to 'emoji_baby_asleep.png'.
   - sets actionImg to 'wait.png'.
@@ -120,6 +121,21 @@ The information is represented as a list of kids. Each kid has properties and bu
   - sets priority to 4.
   - decrements kidsAwake value by one.
   - increments the kidsAsleep value by one.
+  - calls refreshList() to update and sort the list of kids.
+  - returns the activeDepartment which can be used in Jasmine testing.
+
+- takeUp
+  - sets status to 'Finished sleeping'.
+  - sets statusImg to 'empty_pram.png'.
+  - sets actionImg to 'empty_pram.png'.
+  - sets sleepStopTime to current time.
+  - sets action to 'kidname is finished sleeping'.
+  - sets message to 'kidname is finished sleeping'.
+  - sets sleepDuration to the amount of time the kid slept for. It is calculated by: sleepStopTime - sleepStartTime.
+  - decrements kidsAsleep value by one.
+  - sets rowClass to ''.
+  - sets priority to 5.
+  - sets visibility to 'hidden'.
   - calls refreshList() to update and sort the list of kids.
   - returns the activeDepartment which can be used in Jasmine testing.
 
