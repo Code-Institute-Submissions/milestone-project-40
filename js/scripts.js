@@ -127,7 +127,7 @@ Kid.prototype.takeUp = function (event) {
 };
 //Kid prototype
 Kid.prototype.moreInfo = function (event) {
-  activeDepartment.refreshList();
+  //activeDepartment.refreshList();
   return activeDepartment;
 };
 
@@ -216,7 +216,7 @@ setInterval(function () {
   if (activeDepartment.dayStarted) {
     activeDepartment.refreshList();
   }
-}, 10000);
+}, 100000);
 
 /***************************************************************** EVENT LISTENERS */
 $("#btnImportList").on("click", $.proxy(activeDepartment, "importList"));
@@ -328,8 +328,26 @@ function getChildData() {
         </div>
         <div class="col-3 col-md-2 more-info">
           <div class="row text-center">
+            <a data-toggle="collapse" href="#multiCollapse-${kid.name}" aria-expanded="false" aria-controls="multiCollapse">
             <div class="col-12"><i class="fas fa-info-circle fa-3x"></i></div>
             <div class="col-12">more info...</div>
+            </a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="collapse multi-collapse" id="multiCollapse-${kid.name}">
+              <div class="card card-body">
+                <div class="row">
+                  <div class="col-6">
+                    Started sleeping at
+                  </div>
+                  <div class="col-6">
+                    time
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-12 text-center message">${kid.message}</div>
