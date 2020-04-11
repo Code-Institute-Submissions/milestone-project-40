@@ -188,6 +188,8 @@ There will be a **More info** section beside the status section. This area uses 
 
 The Jasmine testing suite can be found at https://paulldev.github.io/milestone-project-2/jasmine-testing/.
 
+The **putDown()** method of the Kid object is successfully tested. Other object method tests were done manually due to the complexity of the data structure and the complexity of testing an object status that is constantly changing. Upon completion of the course I intend to revisit my Jasmine testing suite to find a better solution that is easier to implement.
+
 **Manual testing was recorded in the following table:**
 From inside **DevTools > Sources > Watch**, we add each variable to be tested as we run the app.
 
