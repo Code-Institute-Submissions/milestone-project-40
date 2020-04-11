@@ -187,6 +187,7 @@ There will be a **More info** section beside the status section. This area uses 
 The Jasmine testing suite can be found at https://paulldev.github.io/milestone-project-2/jasmine-testing/.
 
 **Manual testing was recorded in the following table:**
+From inside **DevTools > Sources > Watch**, we add each variable to be tested as we run the app.
 
 | Test                                              | Actions                          | Test results                                                                                                                                                                                                                       | Result |
 | :------------------------------------------------ | :------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
@@ -220,6 +221,8 @@ Now that all the kids are waiting to be taken up, it is time to re-run the test 
 | Action: Take up child | Click action icon for **Mathew** | Check all variables are correct: status, statusImg, action, actionImg, sleepStopTime, message, sleepDuration, rowClass, priority, kidsAsleep, visibility. Check if list is correctly sorted. Check that kid disappeared from list. | Pass   |
 | Action: Take up child | Click action icon for **Jane**   | Check all variables are correct: status, statusImg, action, actionImg, sleepStopTime, message, sleepDuration, rowClass, priority, kidsAsleep, visibility. Check if list is correctly sorted. Check that kid disappeared from list. | Pass   |
 | Action: Take up child | Click action icon for **Tina**   | Check all variables are correct: status, statusImg, action, actionImg, sleepStopTime, message, sleepDuration, rowClass, priority, kidsAsleep, visibility. Check if list is correctly sorted. Check that kid disappeared from list. | Pass   |
+
+Testing the **Vibration API** works using Firefox on a mobile device, but not on Chrome. No other browsers were tested.
 
 ## Deployment
 
