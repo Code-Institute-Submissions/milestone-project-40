@@ -6,7 +6,7 @@
 
 ### Jamine testing suite: https://paulldev.github.io/milestone-project-2/jasmine-testing/
 
-### Project wireframe and structure:
+### Project wireframe and structure: https://github.com/paulldev/milestone-project-2/blob/master/wireframe-milestone-2.pdf
 
 ## Introduction
 
@@ -186,19 +186,40 @@ There will be a **More info** section beside the status section. This area uses 
 
 The Jasmine testing suite can be found at https://paulldev.github.io/milestone-project-2/jasmine-testing/.
 
-Manual testing was recorded in the following table:
-status, statusImg, action, actionImg, putDownTime, message, rowClass, priority, kidsAwake
+**Manual testing was recorded in the following table:**
 
-| Test                             | Actions                          | Test results                                                                                                                                                                                             | Result |
-| :------------------------------- | :------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| Action: Put baby in pram         | Click action icon for **Tina**   | Check all variables are correct: status, statusImg, action, actionImg, putDownTime, message, rowClass, priority, kidsAwake. Check if list is correctly sorted.                                           | Pass   |
-| Action: Put baby in pram         | Click action icon for **Jane**   | Check all variables are correct: status, statusImg, action, actionImg, putDownTime, message, rowClass, priority, kidsAwake. Check if list is correctly sorted.                                           | Pass   |
-| Action: Put baby in pram         | Click action icon for **Mathew** | Check all variables are correct: status, statusImg, action, actionImg, putDownTime, message, rowClass, priority, kidsAwake. Check if list is correctly sorted.                                           | Pass   |
-| Action: Put baby in pram         | Click action icon for **Jonn**   | Check all variables are correct: status, statusImg, action, actionImg, putDownTime, message, rowClass, priority, kidsAwake. Check if list is correctly sorted.                                           | Pass   |
-| Action: Click when kid is asleep | Click action icon for **Tina**   | Check all variables are correct: status, statusImg, action, actionImg, sleepStartTime, takeUpTime, message, awakeDuration, rowClass, priority, kidsAwake, kidsAsleep. Check if list is correctly sorted. | Pass   |
-| Action: Click when kid is asleep | Click action icon for **Jane**   | Check all variables are correct: status, statusImg, action, actionImg, sleepStartTime, takeUpTime, message, awakeDuration, rowClass, priority, kidsAwake, kidsAsleep. Check if list is correctly sorted. | Pass   |
-| Action: Click when kid is asleep | Click action icon for **Mathew** | Check all variables are correct: status, statusImg, action, actionImg, sleepStartTime, takeUpTime, message, awakeDuration, rowClass, priority, kidsAwake, kidsAsleep. Check if list is correctly sorted. | Pass   |
-| Action: Click when kid is asleep | Click action icon for **John**   | Check all variables are correct: status, statusImg, action, actionImg, sleepStartTime, takeUpTime, message, awakeDuration, rowClass, priority, kidsAwake, kidsAsleep. Check if list is correctly sorted. | Pass   |
+| Test                                              | Actions                          | Test results                                                                                                                                                                                                                       | Result |
+| :------------------------------------------------ | :------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| Action: Put baby in pram                          | Click action icon for **Tina**   | Check all variables are correct: status, statusImg, action, actionImg, putDownTime, message, rowClass, priority, kidsAwake. Check if list is correctly sorted.                                                                     | Pass   |
+| Action: Put baby in pram                          | Click action icon for **Jane**   | Check all variables are correct: status, statusImg, action, actionImg, putDownTime, message, rowClass, priority, kidsAwake. Check if list is correctly sorted.                                                                     | Pass   |
+| Action: Put baby in pram                          | Click action icon for **Mathew** | Check all variables are correct: status, statusImg, action, actionImg, putDownTime, message, rowClass, priority, kidsAwake. Check if list is correctly sorted.                                                                     | Pass   |
+| Action: Put baby in pram                          | Click action icon for **Jonn**   | Check all variables are correct: status, statusImg, action, actionImg, putDownTime, message, rowClass, priority, kidsAwake. Check if list is correctly sorted.                                                                     | Pass   |
+| Action: Click when kid is asleep                  | Click action icon for **John**   | Check all variables are correct: status, statusImg, action, actionImg, sleepStartTime, takeUpTime, message, awakeDuration, rowClass, priority, kidsAwake, kidsAsleep. Check if list is correctly sorted.                           | Pass   |
+| Action: Click when kid is asleep                  | Click action icon for **Mathew** | Check all variables are correct: status, statusImg, action, actionImg, sleepStartTime, takeUpTime, message, awakeDuration, rowClass, priority, kidsAwake, kidsAsleep. Check if list is correctly sorted.                           | Pass   |
+| Action: Click when kid is asleep                  | Click action icon for **Jane**   | Check all variables are correct: status, statusImg, action, actionImg, sleepStartTime, takeUpTime, message, awakeDuration, rowClass, priority, kidsAwake, kidsAsleep. Check if list is correctly sorted.                           | Pass   |
+| Action: Click when kid is asleep                  | Click action icon for **Tina**   | Check all variables are correct: status, statusImg, action, actionImg, sleepStartTime, takeUpTime, message, awakeDuration, rowClass, priority, kidsAwake, kidsAsleep. Check if list is correctly sorted.                           | Pass   |
+| Action: Take up child early (before notification) | Click action icon for **John**   | Check all variables are correct: status, statusImg, action, actionImg, sleepStopTime, message, sleepDuration, rowClass, priority, kidsAsleep, visibility. Check if list is correctly sorted. Check that kid disappeared from list. | Pass   |
+| Action: Take up child early (before notification) | Click action icon for **Mathew** | Check all variables are correct: status, statusImg, action, actionImg, sleepStopTime, message, sleepDuration, rowClass, priority, kidsAsleep, visibility. Check if list is correctly sorted. Check that kid disappeared from list. | Pass   |
+| Action: Take up child early (before notification) | Click action icon for **Jane**   | Check all variables are correct: status, statusImg, action, actionImg, sleepStopTime, message, sleepDuration, rowClass, priority, kidsAsleep, visibility. Check if list is correctly sorted. Check that kid disappeared from list. | Pass   |
+| Action: Take up child early (before notification) | Click action icon for **Tina**   | Check all variables are correct: status, statusImg, action, actionImg, sleepStopTime, message, sleepDuration, rowClass, priority, kidsAsleep, visibility. Check if list is correctly sorted. Check that kid disappeared from list. | Pass   |
+
+The next test are to check the timer functionality. Every minute the app is updated. We have given each child unrealistic sleep times of 1, 2, 3, and 4 minutes each. For this test we will click each kid until all of them have a status of sleeping. This will be the starting point for our tests. Then we will wait for five minutes.
+
+| Test                                              | Actions                                | Test results                                                                                                                           | Result |
+| :------------------------------------------------ | :------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| Action: Take up child (wait for app notification) | Wait for **John's** status to change   | Check all variables are correct: status, statusImg, action, actionImg, message, rowClass, priority. Check if list is correctly sorted. | Pass   |
+| Action: Take up child (wait for app notification) | Wait for **Mathew's** status to change | Check all variables are correct: status, statusImg, action, actionImg, message, rowClass, priority. Check if list is correctly sorted. | Pass   |
+| Action: Take up child (wait for app notification) | Wait for **Jane's** status to change   | Check all variables are correct: status, statusImg, action, actionImg, message, rowClass, priority. Check if list is correctly sorted. | Pass   |
+| Action: Take up child (wait for app notification) | Wait for **Tina's** status to change   | Check all variables are correct: status, statusImg, action, actionImg, message, rowClass, priority. Check if list is correctly sorted. | Pass   |
+
+Now that all the kids are waiting to be taken up, it is time to re-run the test to take up each kid.
+
+| Test                  | Actions                          | Test results                                                                                                                                                                                                                       | Result |
+| :-------------------- | :------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| Action: Take up child | Click action icon for **John**   | Check all variables are correct: status, statusImg, action, actionImg, sleepStopTime, message, sleepDuration, rowClass, priority, kidsAsleep, visibility. Check if list is correctly sorted. Check that kid disappeared from list. | Pass   |
+| Action: Take up child | Click action icon for **Mathew** | Check all variables are correct: status, statusImg, action, actionImg, sleepStopTime, message, sleepDuration, rowClass, priority, kidsAsleep, visibility. Check if list is correctly sorted. Check that kid disappeared from list. | Pass   |
+| Action: Take up child | Click action icon for **Jane**   | Check all variables are correct: status, statusImg, action, actionImg, sleepStopTime, message, sleepDuration, rowClass, priority, kidsAsleep, visibility. Check if list is correctly sorted. Check that kid disappeared from list. | Pass   |
+| Action: Take up child | Click action icon for **Tina**   | Check all variables are correct: status, statusImg, action, actionImg, sleepStopTime, message, sleepDuration, rowClass, priority, kidsAsleep, visibility. Check if list is correctly sorted. Check that kid disappeared from list. | Pass   |
 
 ## Deployment
 
